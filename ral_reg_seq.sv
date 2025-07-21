@@ -25,9 +25,10 @@ class reg_seq extends uvm_sequence;
     `uvm_info("SEQ", $sformatf("After Set -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m), UVM_NONE);
 
     ///////////////// call write method 
-    regmodel.c1.update(status);
-    rdata = regmodel.c1.get();
-    rdata_m = regmodel.c1.get_mirrored_value();
+    //regmodel.c1.update(status);
+
+    rdata = regmodel.c1.ctrl_field.get();
+    rdata_m = regmodel.c1.ctrl_field.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("After Tx to DUT -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m),UVM_NONE);
   endtask
 endclass

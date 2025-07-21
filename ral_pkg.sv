@@ -8,7 +8,7 @@
 `include "ral_sequencer.sv"
 `include "ral_driver.sv"
 `include "ral_monitor.sv"
-`include "ral_scb.sv"
 `include "ral_agent.sv"
+`include "ral_scb.sv"
 `include "ral_env.sv"
 `include "ral_test.sv"

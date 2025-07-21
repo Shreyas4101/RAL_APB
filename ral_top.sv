@@ -26,8 +26,8 @@ module tb;
    #10 rst=0;
   end
   initial begin
-  uvm_config_db#(virtual ral_interface.mp_drv)::set(null, "*", "vif", vif);
-  uvm_config_db#(virtual ral_interface.mp_mon)::set(null, "*", "vif", vif);
+  uvm_config_db#(virtual ral_interface.mp_drv)::set(null, "*", "vif", vif.mp_drv);
+  uvm_config_db#(virtual ral_interface.mp_mon)::set(null, "*", "vif", vif.mp_mon);
   //$dumpfile("dump.vcd");
   //$dumpvars;
   end

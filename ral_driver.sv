@@ -4,17 +4,17 @@ class ral_driver extends uvm_driver#(ral_seq_item);
   virtual ral_interface.mp_drv vif;
   ral_seq_item pkt;
 
-  function new(string name = "ral_driver", uvm_component parent);
+  function new(string name = "ral_driver", uvm_component parent = null);
     super.new(name,parent);
   endfunction
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db #(virtual ral_interface.mp_drv) :: get(this, "", "vif", vif))
-      begin
-        `uvm_fatal(get_type_name(), "Unable to get virtual interface");
-      end
     pkt = ral_seq_item::type_id::create("pkt", this);
+    if(!uvm_config_db#(virtual ral_interface.mp_drv)::get(this,"","vif",vif))
+    //  begin
+        `uvm_fatal(get_type_name(), "Unable to get virtual interface");
+     // end
   endfunction
 
   task run_phase(uvm_phase phase);
@@ -30,7 +30,7 @@ $display("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
 
   task drive();
     //drive data
-    @(vif.cb_drv)
+    @(vif.pclk);
     vif.cb_drv.paddr   <=  pkt.paddr;
     vif.cb_drv.pwrite  <=  pkt.pwrite;
     vif.cb_drv.psel    <=  pkt.psel;

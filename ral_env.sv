@@ -10,7 +10,7 @@ class ral_env extends uvm_env;
   ral_scb sb;
   reg_block regmodel;
   ral_adapter adapter_inst;
-  uvm_reg_predictor #(ral_seq_item) predictor_inst;  
+  //uvm_reg_predictor #(ral_seq_item) predictor_inst;  
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
@@ -18,9 +18,9 @@ class ral_env extends uvm_env;
     //cov = ral_cov::type_id::create("cov",this);
     sb = ral_scb::type_id::create("sb",this);
     //predictor_inst = uvm_reg_predictor#(ral_seq_item) :: type_id :: create("predictor_inst", this);
-    regmodel = reg_block :: type_id :: create("regmodel", this);
+    regmodel = reg_block::type_id::create("regmodel", this);
     regmodel.build();
-    adapter_inst = ral_adapter :: type_id :: create("adapter_inst",, get_full_name());
+    adapter_inst = ral_adapter::type_id::create("adapter_inst",this);
   endfunction
 
   function void connect_phase(uvm_phase phase);

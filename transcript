@@ -1,7 +1,6 @@
-# vsim -c tb 
-# Start time: 12:47:11 on Jul 21,2025
+# vsim -c -do "run -all; exit;" tb 
+# Start time: 15:00:22 on Jul 21,2025
 # ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: ral_top.sv(17): (vopt-2958) Implicit wire 'pclk' does not have any driver.
 # ** Warning: ral_top.sv(19): (vopt-2958) Implicit wire 'presetn' does not have any driver.
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -24,6 +23,7 @@
 # Loading mtiUvm.questa_uvm_pkg(fast)
 # Loading work.ral_interface(fast)
 # Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
 # (C) 2007-2013 Mentor Graphics Corporation
@@ -49,21 +49,22 @@
 # UVM_INFO @ 0: reporter [RNTST] Running test ral_test...
 # UVM_INFO ral_reg_seq.sv(16) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] Initial Value -> Desired Value : 0 and Mirrored Value : 0
 # UVM_INFO ral_reg_seq.sv(25) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] After Set -> Desired Value : 1 and Mirrored Value : 0
-# UVM_FATAL verilog_src/uvm-1.1d/src/base/uvm_phase.svh(1253) @ 9200000000000: reporter [PH_TIMEOUT] Default timeout of 9200000000000 hit, indicating a probable testbench issue
+# UVM_INFO ral_reg_seq.sv(32) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] After Tx to DUT -> Desired Value : 1 and Mirrored Value : 0
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 20: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :    5
+# UVM_INFO :    7
 # UVM_WARNING :    0
 # UVM_ERROR :    0
-# UVM_FATAL :    1
+# UVM_FATAL :    0
 # ** Report counts by id
-# [PH_TIMEOUT]     1
 # [Questa UVM]     2
 # [RNTST]     1
-# [SEQ]     2
-# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_report_object.svh(292)
-#    Time: 9200 sec  Iteration: 0  Region: /uvm_pkg::uvm_phase::execute_phase
-# End time: 12:47:16 on Jul 21,2025, Elapsed time: 0:00:05
-# Errors: 0, Warnings: 2
+# [SEQ]     3
+# [TEST_DONE]     1
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 20 ns  Iteration: 53  Instance: /tb
+# End time: 15:00:24 on Jul 21,2025, Elapsed time: 0:00:02
+# Errors: 0, Warnings: 1

@@ -17,7 +17,7 @@ class ral_mon extends uvm_monitor;
   endfunction
 
   task run_phase(uvm_phase phase);
-    repeat(2) @(vif.cb_mon);
+    repeat(3) @(vif.cb_mon);
     forever begin
       @(vif.cb_mon) begin
       pkt = ral_seq_item::type_id::create("pkt", this);
