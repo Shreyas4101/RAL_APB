@@ -1,5 +1,5 @@
 `include "ral_interface.sv"
-`include "ral_reg.sv"
+//`include "ral_reg.sv"
 `include "ral_regblock.sv"
 `include "ral_seq_item.sv"
 `include "ral_adapter.sv"

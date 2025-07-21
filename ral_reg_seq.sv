@@ -16,7 +16,7 @@ class reg_seq extends uvm_sequence;
     `uvm_info("SEQ", $sformatf("Initial Value -> Desired Value : %0d and Mirrored Value : %0d", rdata, rdata_m),UVM_NONE);
 
     ////////////////// update desire value
-    regmodel.c1.set(8'h11);
+    regmodel.r1.set(8'h11);
 
 
     ///////////////// get desire value
