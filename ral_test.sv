@@ -12,7 +12,7 @@
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     env = ral_env::type_id::create("env",this);
-    rseq = reg_seq::type_id::create("rseq", this);
+    rseq = reg_seq::type_id::create("rseq",this);
   endfunction
 
   virtual task run_phase(uvm_phase phase);

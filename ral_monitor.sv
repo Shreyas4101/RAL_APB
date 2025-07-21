@@ -7,20 +7,21 @@ class ral_mon extends uvm_monitor;
 
   function new(string name = "ral_mon", uvm_component parent);
     super.new(name, parent);
-    mon2sb_cov = new("mon2sb_cov", this);
   endfunction
 
   function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    if(!uvm_config_db #(virtual ral_interface.mp_mon) :: get(this, "", "vif", vif))
-      `uvm_fatal("monitor", "Unable to get virtual interface")
+    mon2sb_cov = new("mon2sb_cov", this);
+    if(!uvm_config_db#(virtual ral_interface.mp_mon)::get(this, "", "vif", vif))
+      `uvm_error("monitor", "Unable to get virtual interface")
   endfunction
 
-  task run_phase(uvm_phase phase);
-    repeat(3) @(vif.cb_mon);
+  virtual task run_phase(uvm_phase phase);
+    pkt = ral_seq_item::type_id::create("pkt");
     forever begin
-      @(vif.cb_mon) begin
-      pkt = ral_seq_item::type_id::create("pkt", this);
+    repeat(3) @(vif.pclk);
+     // @(vif.cb_mon) begin
+      $display("-------------monitor begin----------");
       pkt.paddr    =   vif.cb_mon.paddr;
       pkt.pwrite   =   vif.cb_mon.pwrite;
       pkt.psel     =   vif.cb_mon.psel;
@@ -33,10 +34,10 @@ class ral_mon extends uvm_monitor;
       `uvm_info("output monitor", $sformatf("--------------OUTPUT MONITOR---------------"), UVM_LOW);
       pkt.print();
       `uvm_info("output monitor", $sformatf("----------END OF OUTPUT MONITOR------------"), UVM_LOW);
-      @(vif.cb_mon);
-      @(vif.cb_mon);
-      @(vif.cb_mon);
-      end
+     // @(vif.cb_mon);
+     // @(vif.cb_mon);
+     // @(vif.cb_mon);
+     // end
     end
   endtask
 

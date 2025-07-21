@@ -4,7 +4,7 @@
 
 `include "design.v"
 module tb;
-  bit clk;
+  bit pclk;
   bit rst;
   logic psel;
   logic penable;
@@ -18,7 +18,7 @@ module tb;
   //apb_slave DUT(.clk(PCLK),.rst(PRESETn),.psel(PSEL),.penable(PENABLE),.pwrite(PWRITE),.paddr(PADDR),.pwdata(PWDATA),.prdata(PRDATA));
   ral_interface vif(.pclk(pclk),.presetn(presetn));
 
-  always #10 clk = ~clk;
+  always #10 pclk = ~pclk;
   
   initial begin
    rst=0;

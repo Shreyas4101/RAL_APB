@@ -1,8 +1,9 @@
 class ral_scb extends uvm_scoreboard;
   `uvm_component_utils(ral_scb)
 
-  uvm_analysis_imp#(ral_seq_item, ral_scb) sb2mon;
+  uvm_analysis_imp#(ral_seq_item,ral_scb) sb2mon;
   bit [31:0] expected_mem [16];
+  bit [7:0] temp;
 
   function new(string name = "ral_scb", uvm_component parent = null);
     super.new(name, parent);

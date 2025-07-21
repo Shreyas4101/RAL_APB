@@ -38,6 +38,7 @@ class reg_block extends uvm_reg_block;
     default_map.add_reg(r2, 'h8, "RW");
     default_map.add_reg(r3, 'hc, "RW");
     default_map.add_reg(r4, 'h10, "RW");
+    default_map.set_auto_predict(0);
     lock_model();
   endfunction
 endclass
@@ -48,4 +49,4 @@ module tb;
     t1 = new("reg_block");
     t1.build();
   end
-endmodule 
+endmodule

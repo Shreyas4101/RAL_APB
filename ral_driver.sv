@@ -8,29 +8,29 @@ class ral_driver extends uvm_driver#(ral_seq_item);
     super.new(name,parent);
   endfunction
 
-  function void build_phase(uvm_phase phase);
+  virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    pkt = ral_seq_item::type_id::create("pkt", this);
     if(!uvm_config_db#(virtual ral_interface.mp_drv)::get(this,"","vif",vif))
     //  begin
-        `uvm_fatal(get_type_name(), "Unable to get virtual interface");
+        `uvm_error("drv", "Unable to get virtual interface");
      // end
   endfunction
 
-  task run_phase(uvm_phase phase);
+  virtual task run_phase(uvm_phase phase); 
+    pkt = ral_seq_item::type_id::create("pkt", this);
     super.run_phase(phase);
     forever begin
       seq_item_port.get_next_item(pkt);
       drive();
    //   `uvm_info("APB_DRIVER",$sformatf("paddr=%d pwrite=%d psel=%d penable=%d pwdata=%d",req.paddr,req.pwrite,req.psel,req.penable,req.pwdata),UVM_LOW)
       seq_item_port.item_done();
-$display("&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
+$display("-------------------run phase -DRIVER----------------------------");
     end
   endtask
 
   task drive();
     //drive data
-    @(vif.pclk);
+    @(posedge vif.pclk);
     vif.cb_drv.paddr   <=  pkt.paddr;
     vif.cb_drv.pwrite  <=  pkt.pwrite;
     vif.cb_drv.psel    <=  pkt.psel;
