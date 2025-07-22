@@ -24,28 +24,28 @@ class ral_driver extends uvm_driver#(ral_seq_item);
       drive();
    //   `uvm_info("APB_DRIVER",$sformatf("paddr=%d pwrite=%d psel=%d penable=%d pwdata=%d",req.paddr,req.pwrite,req.psel,req.penable,req.pwdata),UVM_LOW)
       seq_item_port.item_done();
-$display("-------------------run phase -DRIVER----------------------------");
     end
   endtask
 
   task drive();
     //drive data
-    @(posedge vif.pclk);
+    @( vif.cb_drv);
     vif.cb_drv.paddr   <=  pkt.paddr;
     vif.cb_drv.pwrite  <=  pkt.pwrite;
     vif.cb_drv.psel    <=  pkt.psel;
     vif.cb_drv.penable <=  pkt.penable;
-    if(vif.cb_drv.pwrite == 1'b1)begin
+    if(pkt.pwrite == 1'b1)begin
       vif.cb_drv.pwdata  <=  pkt.pwdata;
-      `uvm_info("DRV", $sformatf("Data Write -> Wdata : %0d", pkt.pwdata), UVM_NONE);
+    `uvm_info("DRV", $sformatf("Data Write -> Wdata : %0d", pkt.pwdata), UVM_NONE);
      // repeat(3)@(vif.cb_drv);
     end
-  //  else begin
+  /*  else begin
   //    pkt.prdata <= vif.cb_drv.prdata;
   //  end
   `uvm_info("driver", $sformatf("-------------------DRIVER------------------"), UVM_LOW);
   pkt.print();
   `uvm_info("driver", $sformatf("---------------END OF DRIVER---------------"), UVM_LOW);
-  endtask
+ */
+   endtask
 
 endclass

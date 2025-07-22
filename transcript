@@ -1,7 +1,6 @@
-# vsim -c tb 
-# Start time: 16:29:59 on Jul 21,2025
-# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
-# ** Warning: ral_top.sv(19): (vopt-2958) Implicit wire 'presetn' does not have any driver.
+# vsim -c -do "run -all;exit;" tb 
+# Start time: 21:44:12 on Jul 22,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -23,6 +22,7 @@
 # Loading mtiUvm.questa_uvm_pkg(fast)
 # Loading work.ral_interface(fast)
 # Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
 # (C) 2007-2013 Mentor Graphics Corporation
@@ -48,47 +48,27 @@
 # UVM_INFO @ 0: reporter [RNTST] Running test ral_test...
 # UVM_INFO ral_reg_seq.sv(16) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] Initial Value -> Desired Value : 0 and Mirrored Value : 0
 # UVM_INFO ral_reg_seq.sv(25) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] After Set -> Desired Value : 17 and Mirrored Value : 0
-# UVM_INFO ral_driver.sv(46) @ 10: uvm_test_top.env.agent.drv [driver] -------------------DRIVER------------------
-# ------------------------------------------------------------------------------
-# Name                           Type          Size  Value                      
-# ------------------------------------------------------------------------------
-# item                           ral_seq_item  -     @709                       
-#   begin_time                   time          64    0                          
-#   depth                        int           32    'd2                        
-#   parent sequence (name)       string        18    default_parent_seq         
-#   parent sequence (full name)  string        18    default_parent_seq         
-#   sequencer                    string        27    uvm_test_top.env.agent.seqr
-# ------------------------------------------------------------------------------
-# UVM_INFO ral_driver.sv(48) @ 10: uvm_test_top.env.agent.drv [driver] ---------------END OF DRIVER---------------
-# -------------------run phase -DRIVER----------------------------
-# UVM_INFO ral_reg_seq.sv(31) @ 10: uvm_test_top.env.agent.seqr@@rseq [SEQ] After Tx to DUT -> Desired Value : 17 and Mirrored Value : 0
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 30: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ral_driver.sv(39) @ 10: uvm_test_top.env.agent.drv [DRV] Data Write -> Wdata : 17
 # -------------monitor begin----------
-# UVM_INFO ral_scb.sv(25) @ 30: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 0, Data = 0
-# UVM_INFO ral_monitor.sv(34) @ 30: uvm_test_top.env.agent.mon [output monitor] --------------OUTPUT MONITOR---------------
-# -------------------------------
-# Name  Type          Size  Value
-# -------------------------------
-# pkt   ral_seq_item  -     @693 
-# -------------------------------
-# UVM_INFO ral_monitor.sv(36) @ 30: uvm_test_top.env.agent.mon [output monitor] ----------END OF OUTPUT MONITOR------------
+# UVM_INFO ral_reg_seq.sv(31) @ 10: uvm_test_top.env.agent.seqr@@rseq [SEQ] After Tx to DUT -> Desired Value : 17 and Mirrored Value : 17
+# UVM_INFO ral_scb.sv(34) @ 10: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 0, Data = 0
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 30: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   12
+# UVM_INFO :    9
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
 # ** Report counts by id
+# [DRV]     1
 # [Questa UVM]     2
 # [RNTST]     1
 # [SCOREBOARD]     1
 # [SEQ]     3
 # [TEST_DONE]     1
-# [driver]     2
-# [output monitor]     2
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 30 ns  Iteration: 53  Instance: /tb
-# End time: 16:30:04 on Jul 21,2025, Elapsed time: 0:00:05
-# Errors: 0, Warnings: 1
+# End time: 21:44:13 on Jul 22,2025, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0

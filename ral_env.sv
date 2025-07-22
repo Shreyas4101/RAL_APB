@@ -33,7 +33,7 @@ class ral_env extends uvm_env;
  //   predictor_inst.adapter = adapter_inst;
 
 //    agent.mon.mon_ap.connect(predictor_inst.bus_in);
-    regmodel.default_map.set_auto_predict(0);
+//    regmodel.default_map.set_auto_predict(0);
 
   endfunction
 
