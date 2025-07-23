@@ -1,5 +1,5 @@
-# vsim -c -do "run -all;exit;" tb 
-# Start time: 21:44:12 on Jul 22,2025
+# vsim -c tb 
+# Start time: 20:10:45 on Jul 23,2025
 # ** Note: (vsim-8009) Loading existing optimized design _opt
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -22,7 +22,6 @@
 # Loading mtiUvm.questa_uvm_pkg(fast)
 # Loading work.ral_interface(fast)
 # Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
-# run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
 # (C) 2007-2013 Mentor Graphics Corporation
@@ -70,5 +69,5 @@
 # [TEST_DONE]     1
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 30 ns  Iteration: 53  Instance: /tb
-# End time: 21:44:13 on Jul 22,2025, Elapsed time: 0:00:01
+# End time: 20:10:50 on Jul 23,2025, Elapsed time: 0:00:05
 # Errors: 0, Warnings: 0
