@@ -12,7 +12,7 @@ class ral_seq_item extends uvm_sequence_item;
     super.new(name);
   endfunction
 
-//  constraint addr_range {paddr inside {[0:3]};}
+//  constraint addr_range {paddr inside {0, 4, 8, 12, 16};}
 //  constraint psel_value {soft psel==1;}
  
 endclass
