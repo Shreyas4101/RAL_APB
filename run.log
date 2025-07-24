@@ -1,5 +1,5 @@
 # vsim -c -novopt -suppress 12110 work.tb "+TEST_NAME=ral_test" -l run.log -do "/*; add wave -r /*; run -all; exit;" -wlf waveform.wlf 
-# Start time: 10:42:38 on Jul 24,2025
+# Start time: 12:09:46 on Jul 24,2025
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -26,17 +26,90 @@
 # Refreshing /fetools/work_area/frontend/shreyasacharya/repo/RAL/RAL_APB/work.ral_interface
 # Loading work.ral_interface
 # Loading mtiUvm.questa_uvm_pkg
-# ** Error: (vsim-3043) Unresolved reference to 'tr' in $root.tr.pwrite.
-#    Time: 0 ns  Iteration: 0  Region: /ral_top_sv_unit::ral_driver File: ral_driver.sv Line: 97
-# ** Error: (vsim-3043) Unresolved reference to 'tr' in $root.tr.paddr.
-#    Time: 0 ns  Iteration: 0  Region: /ral_top_sv_unit::ral_driver File: ral_driver.sv Line: 101
-# ** Error: (vsim-3043) Unresolved reference to 'tr' in $root.tr.pwdata.
-#    Time: 0 ns  Iteration: 0  Region: /ral_top_sv_unit::ral_driver File: ral_driver.sv Line: 103
-# ** Error (suppressible): (vsim-8209) ral_driver.sv(107): Virtual interface elem. 'pwdata' not found in modport 'mp_drv'.
-#    Time: 0 ns  Iteration: 0  Region: /ral_top_sv_unit::ral_driver File: ral_top.sv
-# ** Error: (vsim-3043) Unresolved reference to 'tr' in $root.tr.prdata.
-#    Time: 0 ns  Iteration: 0  Region: /ral_top_sv_unit::ral_driver File: ral_driver.sv Line: 124
 # Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
-# Error loading design
-# End time: 10:42:40 on Jul 24,2025, Elapsed time: 0:00:02
-# Errors: 5, Warnings: 1
+# /*
+# invalid command name "/*"
+#  add wave -r /*
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test ral_test...
+# UVM_INFO ral_reg_seq.sv(16) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] Initial Value -> Desired Value : 0 and Mirrored Value : 0
+# -------------monitor begin----------
+# UVM_INFO ral_scb.sv(34) @ 10: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 0, Data = 0
+# UVM_INFO ral_driver.sv(107) @ 30: uvm_test_top.env.agent.drv [DRV] Data Write -> Wdata : 11
+# -------------monitor begin----------
+# UVM_INFO ral_scb.sv(29) @ 30: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 11
+# UVM_INFO ral_driver.sv(91) @ 50: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @705                       
+#   begin_time                   time          64    0                          
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ral_reg_seq.sv(36) @ 50: uvm_test_top.env.agent.seqr@@rseq [SEQ] After write REG2 -> Desired: 11, Mirrored: 11, Read: 0
+# UVM_INFO ral_scb.sv(29) @ 50: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 11
+# -------------monitor begin----------
+# UVM_INFO ral_scb.sv(29) @ 70: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 11
+# UVM_INFO ral_driver.sv(120) @ 90: uvm_test_top.env.agent.drv [DRV] Data READ -> read data : 0
+# -------------monitor begin----------
+# UVM_ERROR ral_scb.sv(32) @ 90: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 8, Expected = 11, Received = 0
+# UVM_INFO ral_driver.sv(91) @ 110: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @742                       
+#   begin_time                   time          64    50                         
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ral_reg_seq.sv(40) @ 110: uvm_test_top.env.agent.seqr@@rseq [SEQ] After read REG2 -> Desired: 11, Mirrored: 11, Read: 11
+# UVM_INFO ral_scb.sv(34) @ 110: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 8, Data = 11
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 130: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   16
+# UVM_WARNING :    0
+# UVM_ERROR :    1
+# UVM_FATAL :    0
+# ** Report counts by id
+# [DRV]     4
+# [Questa UVM]     2
+# [RNTST]     1
+# [SCOREBOARD]     6
+# [SEQ]     3
+# [TEST_DONE]     1
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 130 ns  Iteration: 53  Instance: /tb
+# End time: 12:09:49 on Jul 24,2025, Elapsed time: 0:00:03
+# Errors: 0, Warnings: 1

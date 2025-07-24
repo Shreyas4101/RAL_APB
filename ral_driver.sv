@@ -52,7 +52,7 @@ endclass
 */
 
 class ral_driver extends uvm_driver#(ral_seq_item);
-  uvm_component_utils(ral_driver)
+  `uvm_component_utils(ral_driver)
 
   virtual ral_interface.mp_drv vif;
   ral_seq_item pkt;
@@ -65,7 +65,7 @@ class ral_driver extends uvm_driver#(ral_seq_item);
     super.build_phase(phase);
     // pkt is created inside run_phase for each transaction
     if(!uvm_config_db#(virtual ral_interface.mp_drv)::get(this,"","vif",vif))
-      uvm_fatal(get_type_name(), "Unable to get virtual interface");
+      `uvm_fatal(get_type_name(), "Unable to get virtual interface");
   endfunction
 
   task run_phase(uvm_phase phase);
@@ -88,37 +88,37 @@ class ral_driver extends uvm_driver#(ral_seq_item);
 */
       drive();
       seq_item_port.item_done(); // Notify sequencer that item is done
-      uvm_info("DRV", $sformatf("Transaction completed: %s", pkt.sprint()), UVM_LOW);
+      `uvm_info("DRV", $sformatf("Transaction completed: %s", pkt.sprint()), UVM_LOW);
     end
   endtask
   
   task drive();
-  // if(vif.cb_drv.rst == 1'b1)begin
+  // if(vif.cb_drv.presetn == 1'b1)begin
   if(pkt.pwrite == 1'b1)
     begin 
-      @(posedge vif.cb_drv.clk);
-      //vif.cb_drv.rst <= 1'b1;
+      @(vif.cb_drv);
+      vif.presetn <= 1'b1;
       vif.cb_drv.paddr <= pkt.paddr;
       vif.cb_drv.pwrite <= 1'b1;
       vif.cb_drv.pwdata <= pkt.pwdata;
       vif.cb_drv.psel <= 1'b1;
-      repeat(2)@(posedge vif.cb_drv.clk);
+      @(vif.cb_drv);
       vif.cb_drv.penable <= 1'b1; 
       `uvm_info("DRV", $sformatf("Data Write -> Wdata : %0h",vif.cb_drv.pwdata),UVM_NONE);
-      @(posedge vif.cb_drv.clk);
+      @(vif.cb_drv);
       vif.cb_drv.psel <= 1'b0;
       vif.cb_drv.penable <=1'b0;
     end
   else
     begin
-      @(posedge vif.cb_drv.clk);
+      @(vif.cb_drv);
       vif.cb_drv.pwrite <= 1'b0;
       vif.cb_drv.paddr <= pkt.paddr;
       vif.cb_drv.psel <= 1'b1;
-      repeat(2)@(posedge vif.cb_drv.clk);
+      @(vif.cb_drv);
       vif.cb_drv.penable <= 1'b1; 
       `uvm_info("DRV", $sformatf("Data READ -> read data : %0h",vif.cb_drv.prdata),UVM_NONE);
-      @(posedge vif.cb_drv.clk);
+      @(vif.cb_drv);
       vif.cb_drv.psel <= 1'b0;
       vif.cb_drv.penable <=1'b0;
       pkt.prdata = vif.cb_drv.prdata;
