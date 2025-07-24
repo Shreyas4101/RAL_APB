@@ -1,0 +1,9 @@
+QuestaSim vlog 10.6c Compiler 2017.07 Jul 25 2017
+Start time: 10:43:51 on Jul 24,2025
+vlog -l compile.log ral_top.sv 
+** Note: (vlog-2286) ral_top.sv(1): Using implicit +incdir+/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
+** Error: ** while parsing file included at ral_top.sv(3)
+** while parsing file included at ral_pkg.sv(9)
+** at ral_driver.sv(60): (vlog-2400) Identifier ('spkting') found where a type or type identifier is required.
+End time: 10:43:51 on Jul 24,2025, Elapsed time: 0:00:00
+Errors: 1, Warnings: 0

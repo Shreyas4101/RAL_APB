@@ -15,6 +15,7 @@ interface ral_interface(input logic pclk, input logic presetn);
     inout pwrite;
     inout paddr;
     inout pwdata;
+    input prdata;
   endclocking
 
   clocking cb_mon @(posedge pclk);
@@ -27,7 +28,7 @@ interface ral_interface(input logic pclk, input logic presetn);
     input prdata;
   endclocking
 
-  modport mp_drv(clocking cb_drv, input pclk, presetn);
+  modport mp_drv(clocking cb_drv, input pclk, presetn, prdata);
   modport mp_mon(clocking cb_mon, input pclk, presetn);
 
 // ASSERTIONS
