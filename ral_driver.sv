@@ -32,8 +32,8 @@ class ral_driver extends uvm_driver#(ral_seq_item);
   endtask
 
   task drive();
-    if(vif.presetn == 1'b1)
-      begin
+//    if(vif.presetn == 1'b1)
+  //    begin
         if(pkt.pwrite == 1'b1)
           begin 
             @(vif.cb_drv);
@@ -62,7 +62,7 @@ class ral_driver extends uvm_driver#(ral_seq_item);
             vif.cb_drv.penable <= 1'b0;
             pkt.prdata = vif.cb_drv.prdata; // Capture read data from DUT
           end
-      end
+    //  end
   endtask
 
 endclass

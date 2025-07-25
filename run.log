@@ -1,5 +1,5 @@
 # vsim -c -novopt -suppress 12110 work.tb "+TEST_NAME=ral_test" -l run.log -do "/*; add wave -r /*; run -all; exit;" -wlf waveform.wlf 
-# Start time: 12:09:46 on Jul 24,2025
+# Start time: 10:15:40 on Jul 25,2025
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -57,10 +57,10 @@
 # UVM_INFO ral_reg_seq.sv(16) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] Initial Value -> Desired Value : 0 and Mirrored Value : 0
 # -------------monitor begin----------
 # UVM_INFO ral_scb.sv(34) @ 10: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 0, Data = 0
-# UVM_INFO ral_driver.sv(107) @ 30: uvm_test_top.env.agent.drv [DRV] Data Write -> Wdata : 11
+# UVM_INFO ral_driver.sv(46) @ 30: uvm_test_top.env.agent.drv [DRV] Wdata : 11, Addr : 8
 # -------------monitor begin----------
 # UVM_INFO ral_scb.sv(29) @ 30: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 11
-# UVM_INFO ral_driver.sv(91) @ 50: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# UVM_INFO ral_driver.sv(30) @ 50: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
 # Name                           Type          Size  Value                      
 # ------------------------------------------------------------------------------
 # item                           ral_seq_item  -     @705                       
@@ -76,10 +76,10 @@
 # UVM_INFO ral_scb.sv(29) @ 50: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 11
 # -------------monitor begin----------
 # UVM_INFO ral_scb.sv(29) @ 70: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 11
-# UVM_INFO ral_driver.sv(120) @ 90: uvm_test_top.env.agent.drv [DRV] Data READ -> read data : 0
+# UVM_INFO ral_driver.sv(59) @ 90: uvm_test_top.env.agent.drv [DRV] Rdata : 0, Addr : 8
 # -------------monitor begin----------
 # UVM_ERROR ral_scb.sv(32) @ 90: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 8, Expected = 11, Received = 0
-# UVM_INFO ral_driver.sv(91) @ 110: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# UVM_INFO ral_driver.sv(30) @ 110: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
 # Name                           Type          Size  Value                      
 # ------------------------------------------------------------------------------
 # item                           ral_seq_item  -     @742                       
@@ -111,5 +111,5 @@
 # [TEST_DONE]     1
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 130 ns  Iteration: 53  Instance: /tb
-# End time: 12:09:49 on Jul 24,2025, Elapsed time: 0:00:03
+# End time: 10:15:43 on Jul 25,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 1
