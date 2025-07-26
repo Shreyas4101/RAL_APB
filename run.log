@@ -1,5 +1,5 @@
 # vsim -c -novopt -suppress 12110 work.tb "+TEST_NAME=ral_test" -l run.log -do "/*; add wave -r /*; run -all; exit;" -wlf waveform.wlf 
-# Start time: 10:15:40 on Jul 25,2025
+# Start time: 13:58:51 on Jul 25,2025
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -91,7 +91,7 @@
 # ------------------------------------------------------------------------------
 # 
 # -------------monitor begin----------
-# UVM_INFO ral_reg_seq.sv(40) @ 110: uvm_test_top.env.agent.seqr@@rseq [SEQ] After read REG2 -> Desired: 11, Mirrored: 11, Read: 11
+# UVM_INFO ral_reg_seq.sv(40) @ 110: uvm_test_top.env.agent.seqr@@rseq [SEQ] After read REG2 -> Desired: 0, Mirrored: 0, Read: 0
 # UVM_INFO ral_scb.sv(34) @ 110: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 8, Data = 11
 # UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 130: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
@@ -111,5 +111,5 @@
 # [TEST_DONE]     1
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 130 ns  Iteration: 53  Instance: /tb
-# End time: 10:15:43 on Jul 25,2025, Elapsed time: 0:00:03
+# End time: 13:58:54 on Jul 25,2025, Elapsed time: 0:00:03
 # Errors: 0, Warnings: 1
