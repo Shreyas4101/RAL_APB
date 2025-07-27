@@ -9,6 +9,8 @@ class reg_seq extends uvm_sequence;
   virtual task body; 
     uvm_status_e status;
     bit [7:0] dv,mv,dout;
+/*
+    ///////////////////// FRONTDOOR  //////////////////////
 
     ///////////////////// REGISTER-1 //////////////////////
 
@@ -95,6 +97,14 @@ class reg_seq extends uvm_sequence;
     `uvm_info("SEQ", $sformatf("After Update -> Desired Value: %0h, Mirrored Value: %0h", dv, mv),UVM_NONE);
 
     regmodel.r3.write(status,8'h33);
+        dv = regmodel.r3.get();
+    mv = regmodel.r3.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("After write to REG3 -> Desired Value: %0h, Mirrored Value: %0h", dv, mv), UVM_NONE);
+
+    regmodel.r3.read(status,dout);
+    dv = regmodel.r3.get();
+    mv = regmodel.r3.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("After read from REG3 -> Desired: %0h, Mirrored Value: %0h, Read: %0h", dv, mv, dout), UVM_NONE);
 
 
     ///////////////////// REGISTER-4 //////////////////////
@@ -127,6 +137,82 @@ class reg_seq extends uvm_sequence;
     dv = regmodel.r4.get();
     mv = regmodel.r4.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("After read from REG4 -> Desired: %0h, Mirrored Value: %0h, Read: %0h", dv, mv, dout), UVM_NONE);
+
+    */
+
+    ///////////////////// BACKDOOR  //////////////////////
+
+    ///////////////////// REGISTER-1 //////////////////////
+
+    ////////////////////////initial value
+    dv = regmodel.r1.get();
+    mv = regmodel.r1.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("Initial Value -> Desired Value: %0h, Mirrored Value: %0h", dv, mv),UVM_NONE);
+
+    regmodel.r1.poke(status,8'h11);
+    dv   = regmodel.r1.get();
+    mv = regmodel.r1.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("After poke to REG1 -> Desired Value: %0h, Mirrored Value: %0h", dv, mv), UVM_NONE);
+
+    regmodel.r1.peek(status,dout);
+    dv   = regmodel.r1.get();
+    mv = regmodel.r1.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("After peek from REG1 -> Desired: %0h, Mirrored Value: %0h, peek: %0h", dv, mv, dout), UVM_NONE);
+
+    ///////////////////// REGISTER-2 //////////////////////
+
+    ////////////////////////initial value
+    dv = regmodel.r2.get();
+    mv = regmodel.r2.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("Initial Value -> Desired Value: %0h, Mirrored Value: %0h", dv, mv),UVM_NONE);
+
+    regmodel.r2.poke(status,8'h22);
+    dv = regmodel.r2.get();
+    mv = regmodel.r2.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("After poke to REG2 -> Desired Value: %0h, Mirrored Value: %0h", dv, mv), UVM_NONE);
+
+    regmodel.r2.peek(status,dout);
+    dv = regmodel.r2.get();
+    mv = regmodel.r2.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("After peek from REG2 -> Desired: %0h, Mirrored Value: %0h, peek: %0h", dv, mv, dout), UVM_NONE);
+
+
+    ///////////////////// REGISTER-3 //////////////////////
+
+    ////////////////////////initial value
+    dv = regmodel.r3.get();
+    mv = regmodel.r3.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("Initial Value -> Desired Value: %0h, Mirrored Value: %0h", dv, mv),UVM_NONE);
+
+
+    regmodel.r3.poke(status,8'h33);
+    dv = regmodel.r3.get();
+    mv = regmodel.r3.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("After poke to REG3 -> Desired Value: %0h, Mirrored Value: %0h", dv, mv), UVM_NONE);
+
+    regmodel.r3.peek(status,dout);
+    dv = regmodel.r3.get();
+    mv = regmodel.r3.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("After peek from REG3 -> Desired: %0h, Mirrored Value: %0h, peek: %0h", dv, mv, dout), UVM_NONE);
+
+
+    ///////////////////// REGISTER-4 //////////////////////
+
+    ////////////////////////initial value
+    dv = regmodel.r4.get();
+    mv = regmodel.r4.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("Initial Value -> Desired Value: %0h, Mirrored Value: %0h", dv, mv),UVM_NONE);
+
+    regmodel.r4.poke(status,8'h44);
+    dv = regmodel.r4.get();
+    mv = regmodel.r4.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("After poke to REG4 -> Desired Value: %0h, Mirrored Value: %0h", dv, mv), UVM_NONE);
+
+    regmodel.r4.peek(status,dout);
+    dv = regmodel.r4.get();
+    mv = regmodel.r4.get_mirrored_value();
+    `uvm_info("SEQ", $sformatf("After peek from REG4 -> Desired: %0h, Mirrored Value: %0h, peek: %0h", dv, mv, dout), UVM_NONE);
+
 
   endtask
 endclass
