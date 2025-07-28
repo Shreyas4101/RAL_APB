@@ -138,7 +138,7 @@ class reg_seq extends uvm_sequence;
     mv = regmodel.r4.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("After read from REG4 -> Desired: %0h, Mirrored Value: %0h, Read: %0h", dv, mv, dout), UVM_NONE);
 
-    */
+    
 
     ///////////////////// BACKDOOR  //////////////////////
 
@@ -158,7 +158,7 @@ class reg_seq extends uvm_sequence;
     dv   = regmodel.r1.get();
     mv = regmodel.r1.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("After peek from REG1 -> Desired: %0h, Mirrored Value: %0h, peek: %0h", dv, mv, dout), UVM_NONE);
-
+*/
     ///////////////////// REGISTER-2 //////////////////////
 
     ////////////////////////initial value
@@ -175,7 +175,7 @@ class reg_seq extends uvm_sequence;
     dv = regmodel.r2.get();
     mv = regmodel.r2.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("After peek from REG2 -> Desired: %0h, Mirrored Value: %0h, peek: %0h", dv, mv, dout), UVM_NONE);
-
+/*
 
     ///////////////////// REGISTER-3 //////////////////////
 
@@ -213,6 +213,6 @@ class reg_seq extends uvm_sequence;
     mv = regmodel.r4.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("After peek from REG4 -> Desired: %0h, Mirrored Value: %0h, peek: %0h", dv, mv, dout), UVM_NONE);
 
-
+*/
   endtask
 endclass

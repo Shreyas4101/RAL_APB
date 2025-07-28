@@ -1,5 +1,5 @@
 # vsim -c -novopt -suppress 12110 work.tb "+TEST_NAME=ral_test" -l run.log -do "/*; add wave -r /*; run -all; exit;" -wlf waveform.wlf 
-# Start time: 13:58:51 on Jul 25,2025
+# Start time: 16:19:33 on Jul 28,2025
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -54,62 +54,47 @@
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
 # UVM_INFO @ 0: reporter [RNTST] Running test ral_test...
-# UVM_INFO ral_reg_seq.sv(16) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] Initial Value -> Desired Value : 0 and Mirrored Value : 0
+# UVM_INFO ral_reg_seq.sv(167) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] Initial Value -> Desired Value: 0, Mirrored Value: 0
+# UVM_ERROR: Unable to deposit value into 'DUT.reg2'
+#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
+# UVM_ERROR: Unable to deposit value into 'DUT.reg2'
+#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
+# UVM_ERROR: Unable to deposit value into 'DUT.reg2'
+#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
+# UVM_ERROR: Unable to deposit value into 'DUT.reg2'
+#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
+# UVM_ERROR: Unable to deposit value into 'DUT.reg2'
+#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
+# UVM_INFO ral_reg_seq.sv(172) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] After poke to REG2 -> Desired Value: 22, Mirrored Value: 22
+# UVM_ERROR: Unable to read value from 'DUT.reg2'
+#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
+# UVM_ERROR: Unable to read value from 'DUT.reg2'
+#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
+# UVM_ERROR: Unable to read value from 'DUT.reg2'
+#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
+# UVM_ERROR: Unable to read value from 'DUT.reg2'
+#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
+# UVM_ERROR: Unable to read value from 'DUT.reg2'
+#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
+# UVM_INFO ral_reg_seq.sv(177) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] After peek from REG2 -> Desired: 0, Mirrored Value: 0, peek: 0
 # -------------monitor begin----------
 # UVM_INFO ral_scb.sv(34) @ 10: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 0, Data = 0
-# UVM_INFO ral_driver.sv(46) @ 30: uvm_test_top.env.agent.drv [DRV] Wdata : 11, Addr : 8
-# -------------monitor begin----------
-# UVM_INFO ral_scb.sv(29) @ 30: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 11
-# UVM_INFO ral_driver.sv(30) @ 50: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
-# Name                           Type          Size  Value                      
-# ------------------------------------------------------------------------------
-# item                           ral_seq_item  -     @705                       
-#   begin_time                   time          64    0                          
-#   depth                        int           32    'd2                        
-#   parent sequence (name)       string        18    default_parent_seq         
-#   parent sequence (full name)  string        18    default_parent_seq         
-#   sequencer                    string        27    uvm_test_top.env.agent.seqr
-# ------------------------------------------------------------------------------
-# 
-# -------------monitor begin----------
-# UVM_INFO ral_reg_seq.sv(36) @ 50: uvm_test_top.env.agent.seqr@@rseq [SEQ] After write REG2 -> Desired: 11, Mirrored: 11, Read: 0
-# UVM_INFO ral_scb.sv(29) @ 50: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 11
-# -------------monitor begin----------
-# UVM_INFO ral_scb.sv(29) @ 70: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 11
-# UVM_INFO ral_driver.sv(59) @ 90: uvm_test_top.env.agent.drv [DRV] Rdata : 0, Addr : 8
-# -------------monitor begin----------
-# UVM_ERROR ral_scb.sv(32) @ 90: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 8, Expected = 11, Received = 0
-# UVM_INFO ral_driver.sv(30) @ 110: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
-# Name                           Type          Size  Value                      
-# ------------------------------------------------------------------------------
-# item                           ral_seq_item  -     @742                       
-#   begin_time                   time          64    50                         
-#   depth                        int           32    'd2                        
-#   parent sequence (name)       string        18    default_parent_seq         
-#   parent sequence (full name)  string        18    default_parent_seq         
-#   sequencer                    string        27    uvm_test_top.env.agent.seqr
-# ------------------------------------------------------------------------------
-# 
-# -------------monitor begin----------
-# UVM_INFO ral_reg_seq.sv(40) @ 110: uvm_test_top.env.agent.seqr@@rseq [SEQ] After read REG2 -> Desired: 0, Mirrored: 0, Read: 0
-# UVM_INFO ral_scb.sv(34) @ 110: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 8, Data = 11
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 130: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 20: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   16
+# UVM_INFO :    8
 # UVM_WARNING :    0
-# UVM_ERROR :    1
+# UVM_ERROR :    0
 # UVM_FATAL :    0
 # ** Report counts by id
-# [DRV]     4
 # [Questa UVM]     2
 # [RNTST]     1
-# [SCOREBOARD]     6
+# [SCOREBOARD]     1
 # [SEQ]     3
 # [TEST_DONE]     1
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 130 ns  Iteration: 53  Instance: /tb
-# End time: 13:58:54 on Jul 25,2025, Elapsed time: 0:00:03
+#    Time: 20 ns  Iteration: 53  Instance: /tb
+# End time: 16:19:35 on Jul 28,2025, Elapsed time: 0:00:02
 # Errors: 0, Warnings: 1

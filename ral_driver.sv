@@ -60,7 +60,7 @@ class ral_driver extends uvm_driver#(ral_seq_item);
             @(vif.cb_drv);
             vif.cb_drv.psel    <= 1'b0;
             vif.cb_drv.penable <= 1'b0;
-            pkt.prdata <= vif.cb_drv.prdata; // Capture read data from DUT
+            pkt.prdata = vif.cb_drv.prdata; // Capture read data from DUT
           end
     //  end
   endtask

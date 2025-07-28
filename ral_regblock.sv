@@ -74,11 +74,11 @@ endclass
 class reg_block extends uvm_reg_block;
   `uvm_object_utils(reg_block)
 
-  ctrl c1;
-  reg1 r1;
-  reg2 r2;
-  reg3 r3;
-  reg4 r4;
+  rand ctrl c1;
+  rand reg1 r1;
+  rand reg2 r2;
+  rand reg3 r3;
+  rand reg4 r4;
 
   function new(string name = "reg_block");
     super.new(name, UVM_NO_COVERAGE);
@@ -121,7 +121,7 @@ class reg_block extends uvm_reg_block;
     default_map.add_reg(r2, 'h8, "RW");
     default_map.add_reg(r3, 'hc, "RW");
     default_map.add_reg(r4, 'h10, "RW");
-    default_map.set_auto_predict(0);
+    default_map.set_auto_predict(1);
     lock_model();
   endfunction
 endclass
