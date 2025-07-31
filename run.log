@@ -1,5 +1,5 @@
-# vsim -c -novopt -suppress 12110 work.tb "+TEST_NAME=ral_test" -l run.log -do "/*; add wave -r /*; run -all; exit;" -wlf waveform.wlf 
-# Start time: 16:19:33 on Jul 28,2025
+# vsim -c -novopt -suppress 12110 work.tb "+TEST_NAME=ral_test1" -l run.log -do "/*; add wave -r /*; run -all; exit;" -wlf waveform.wlf 
+# Start time: 10:04:51 on Jul 30,2025
 # ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
@@ -53,30 +53,12 @@
 # 
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
-# UVM_INFO @ 0: reporter [RNTST] Running test ral_test...
-# UVM_INFO ral_reg_seq.sv(167) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] Initial Value -> Desired Value: 0, Mirrored Value: 0
-# UVM_ERROR: Unable to deposit value into 'DUT.reg2'
-#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
-# UVM_ERROR: Unable to deposit value into 'DUT.reg2'
-#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
-# UVM_ERROR: Unable to deposit value into 'DUT.reg2'
-#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
-# UVM_ERROR: Unable to deposit value into 'DUT.reg2'
-#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
-# UVM_ERROR: Unable to deposit value into 'DUT.reg2'
-#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
-# UVM_INFO ral_reg_seq.sv(172) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] After poke to REG2 -> Desired Value: 22, Mirrored Value: 22
-# UVM_ERROR: Unable to read value from 'DUT.reg2'
-#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
-# UVM_ERROR: Unable to read value from 'DUT.reg2'
-#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
-# UVM_ERROR: Unable to read value from 'DUT.reg2'
-#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
-# UVM_ERROR: Unable to read value from 'DUT.reg2'
-#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
-# UVM_ERROR: Unable to read value from 'DUT.reg2'
-#  Either the path is incorrect, or you may not have PLI/ACC visibility to that object.
-# UVM_INFO ral_reg_seq.sv(177) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] After peek from REG2 -> Desired: 0, Mirrored Value: 0, peek: 0
+# UVM_INFO @ 0: reporter [RNTST] Running test ral_test1...
+# UVM_INFO ral_reg_seq.sv(359) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] Reset Value is present: 1 
+# UVM_INFO ral_reg_seq.sv(361) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ]  Reset for REG2: 12349876
+# UVM_INFO ral_reg_seq.sv(365) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] Before reset REG2 -> Desired: 0, Mirrored: 0
+# ---------- Applying reset to REG2------------
+# UVM_INFO ral_reg_seq.sv(371) @ 0: uvm_test_top.env.agent.seqr@@rseq [SEQ] After reset REG2 -> Desired: 12349876, Mirrored: 12349876, Read: 0
 # -------------monitor begin----------
 # UVM_INFO ral_scb.sv(34) @ 10: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 0, Data = 0
 # UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 20: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
@@ -84,7 +66,7 @@
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :    8
+# UVM_INFO :    9
 # UVM_WARNING :    0
 # UVM_ERROR :    0
 # UVM_FATAL :    0
@@ -92,9 +74,9 @@
 # [Questa UVM]     2
 # [RNTST]     1
 # [SCOREBOARD]     1
-# [SEQ]     3
+# [SEQ]     4
 # [TEST_DONE]     1
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 20 ns  Iteration: 53  Instance: /tb
-# End time: 16:19:35 on Jul 28,2025, Elapsed time: 0:00:02
+# End time: 10:05:06 on Jul 30,2025, Elapsed time: 0:00:15
 # Errors: 0, Warnings: 1

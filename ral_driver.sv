@@ -17,12 +17,12 @@ class ral_driver extends uvm_driver#(ral_seq_item);
 
   task run_phase(uvm_phase phase);
     super.run_phase(phase);
-    vif.cb_drv.psel    <= 1'b0;
+   /* vif.cb_drv.psel    <= 1'b0;
     vif.cb_drv.penable <= 1'b0;
     vif.cb_drv.pwrite  <= 1'b0;
     vif.cb_drv.paddr   <= 32'h0;
     vif.cb_drv.pwdata  <= 32'h0;
-
+*/
     forever begin
       seq_item_port.get_next_item(pkt); 
       drive();
@@ -37,11 +37,12 @@ class ral_driver extends uvm_driver#(ral_seq_item);
         if(pkt.pwrite == 1'b1)
           begin 
             @(vif.cb_drv);
+            vif.presetn <= 1'b1;
             vif.cb_drv.pwrite  <= 1'b1;
             vif.cb_drv.psel    <= 1'b1;
             vif.cb_drv.paddr   <= pkt.paddr;
             vif.cb_drv.pwdata  <= pkt.pwdata;
-            @(vif.cb_drv);
+            repeat(2)@(vif.cb_drv);
             vif.cb_drv.penable <= 1'b1; 
             `uvm_info("DRV", $sformatf("Wdata : %0h, Addr : %0h",vif.cb_drv.pwdata, vif.cb_drv.paddr),UVM_NONE);
             @(vif.cb_drv);
@@ -54,7 +55,7 @@ class ral_driver extends uvm_driver#(ral_seq_item);
             vif.cb_drv.pwrite  <= 1'b0;
             vif.cb_drv.paddr   <= pkt.paddr;
             vif.cb_drv.psel    <= 1'b1;
-            @(vif.cb_drv);
+            repeat(2)@(vif.cb_drv);
             vif.cb_drv.penable <= 1'b1; 
             `uvm_info("DRV", $sformatf("Rdata : %0h, Addr : %0h",vif.cb_drv.prdata, vif.cb_drv.paddr),UVM_NONE);
             @(vif.cb_drv);

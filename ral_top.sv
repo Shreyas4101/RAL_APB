@@ -22,8 +22,8 @@ module tb;
   
   initial begin
    presetn=0;
-   #10 presetn=1;
-   #10 presetn=0;
+  // #10 presetn=1;
+    presetn=0;
    #10 presetn = 1;
   end
   initial begin
@@ -34,7 +34,7 @@ module tb;
   end
   
   initial begin
-  run_test("ral_test");  
+  run_test("ral_test1");  
   end
   
 endmodule
