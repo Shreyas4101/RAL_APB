@@ -34,7 +34,7 @@ module tb;
   end
   
   initial begin
-  run_test("ral_test1");  
+  run_test("fr2_test");  
   end
   
 endmodule

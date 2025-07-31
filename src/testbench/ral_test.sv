@@ -1,3 +1,23 @@
+// FRONTDOOR
+
+`include "tests/fr1_test.sv"
+`include "tests/fr2_test.sv"
+`include "tests/fr3_test.sv"
+`include "tests/fr4_test.sv"
+`include "tests/rst1_test.sv"
+`include "tests/rst2_test.sv"
+`include "tests/rst3_test.sv"
+`include "tests/rst4_test.sv"
+
+
+// BACKDOOR
+
+`include "tests/br1_test.sv"
+`include "tests/br2_test.sv"
+`include "tests/br3_test.sv"
+`include "tests/br4_test.sv"
+
+
 /*  class ral_test extends uvm_test;
 
 `uvm_component_utils(ral_test)
@@ -7,12 +27,12 @@
   endfunction
   
   ral_env env;
-  reg_seq rseq;
+  fr2_seq rseq;
 
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
     env = ral_env::type_id::create("env",this);
-    rseq = reg_seq::type_id::create("rseq",this);
+    rseq = fr2_seq::type_id::create("rseq",this);
   endfunction
 
   virtual task run_phase(uvm_phase phase);
@@ -23,7 +43,7 @@
     phase.phase_done.set_drain_time(this, 20);
   endtask
 endclass
-*/
+
 
 class ral_test1 extends uvm_test;
 
@@ -77,3 +97,4 @@ class reg_sequence_ral_test extends ral_test;
     phase.phase_done.set_drain_time(this,100); 
   endtask 
 endclass*/
+

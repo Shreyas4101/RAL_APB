@@ -4,7 +4,6 @@
 `include "ral_seq_item.sv"
 `include "ral_adapter.sv"
 `include "ral_reg_seq.sv"
-//`include "sequence.sv"
 `include "ral_sequencer.sv"
 `include "ral_driver.sv"
 `include "ral_monitor.sv"
