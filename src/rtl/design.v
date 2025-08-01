@@ -26,7 +26,7 @@ always @ (posedge pclk)
           reg2     <= 32'h1234_9876;
           reg3     <= 32'hA5A5_0000;;
           reg4     <= 32'h0000_FFFF;
-          rdata_tmp <= 32'h00000000;
+//          rdata_tmp <= 32'h00000000;
         end
       else if( psel && penable && pwrite )
         begin

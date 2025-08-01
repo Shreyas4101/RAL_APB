@@ -2,8 +2,11 @@ compile:
 	vlib work;
 	vlog -l compile.log ../src/testbench/$(top_file)
 
-run:
+run_f:
 	vsim -c -novopt -suppress 12110 work.$(top_module) $(arg) -l run.log -do "/*; add wave -r /*; run -all; exit;" -wlf waveform.wlf
+
+run_b:
+    vsim tb -voptargs=+acc=npr -l tb.log -c -do "run -all;quit;"
 
 view:
 	vsim -view waveform.wlf

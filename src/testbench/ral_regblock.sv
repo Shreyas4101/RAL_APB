@@ -85,31 +85,26 @@ class reg_block extends uvm_reg_block;
   endfunction
 
   function void build;
-    add_hdl_path("DUT", "RTL");	
     c1 = ctrl::type_id::create("c1");
     c1.build();
     c1.configure(this);
     c1.add_hdl_path_slice("cntrl", 0, 4);
 
-    add_hdl_path("DUT", "RTL");
     r1 = reg1::type_id::create("r1");
     r1.build();
     r1.configure(this);
     r1.add_hdl_path_slice("reg1", 0, 32);
 
-    add_hdl_path("DUT", "RTL");
     r2 = reg2::type_id::create("r2");
     r2.build();
     r2.configure(this);
     r2.add_hdl_path_slice("reg2", 0, 32);
 
-    add_hdl_path("DUT", "RTL");
     r3 = reg3::type_id::create("r3");
     r3.build();
     r3.configure(this);
     r3.add_hdl_path_slice("reg3", 0, 32);
 
-    add_hdl_path("DUT", "RTL");
     r4 = reg4::type_id::create("r4");
     r4.build();
     r4.configure(this);
@@ -121,7 +116,8 @@ class reg_block extends uvm_reg_block;
     default_map.add_reg(r2, 'h8, "RW");
     default_map.add_reg(r3, 'hc, "RW");
     default_map.add_reg(r4, 'h10, "RW");
-    default_map.set_auto_predict(1);
+    add_hdl_path("tb.DUT","RTL");	
+    //default_map.set_auto_predict(0);
     lock_model();
   endfunction
 endclass
