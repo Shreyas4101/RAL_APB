@@ -1,4 +1,4 @@
-/*class ral_driver extends uvm_driver#(ral_seq_item);
+class ral_driver extends uvm_driver#(ral_seq_item);
 
   `uvm_component_utils(ral_driver)
 
@@ -17,7 +17,7 @@
 
   task run_phase(uvm_phase phase);
     super.run_phase(phase);
-   /* vif.cb_drv.psel    <= 1'b0;
+    vif.cb_drv.psel    <= 1'b0;
     vif.cb_drv.penable <= 1'b0;
     vif.cb_drv.pwrite  <= 1'b0;
     vif.cb_drv.paddr   <= 32'h0;
@@ -66,8 +66,9 @@
     //  end
   endtask
 
-endclass*/
+endclass
 
+/*
 class ral_driver extends uvm_driver#(ral_seq_item);
 
   `uvm_component_utils(ral_driver)
@@ -151,3 +152,5 @@ class ral_driver extends uvm_driver#(ral_seq_item);
   endtask
 
 endclass
+
+*/
