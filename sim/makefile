@@ -5,9 +5,6 @@ compile:
 run_f:
 	vsim -c -novopt -suppress 12110 work.$(top_module) $(arg) -l run.log -do "/*; add wave -r /*; run -all; exit;" -wlf waveform.wlf
 
-run_b:
-    vsim tb -voptargs=+acc=npr -l tb.log -c -do "run -all;quit;"
-
 view:
 	vsim -view waveform.wlf
 
@@ -25,26 +22,6 @@ compile_code_cov:
 run_code_cov:
 	vsim -coverage $(top_module) $(arg) -c -do "coverage save -onexit -directive -codeAll alu_coverage; run -all; exit";
 	vcover report -html alu_coverage;
-
-clean:
-	rm -rf transcript *.vcd *.wlf work/ *.log *.ucdb *.vstf covReport covhtmlreport alu_coverage
-
-# Existing compile target (no change needed here)
-compile:
-	vlib work;
-	vlog -l compile.log ../src/testbench/$(top_file)
-
-run_f:
-	vsim -c -novopt -suppress 12110 work.$(top_module) $(arg) -l run.log -do "/*; add wave -r /*; run -all; exit;" -wlf waveform.wlf
-
-# CORRECTED run_b target
-run_b:
-	vsim -c -l tb.log work.$(top_module) $(arg) -do "run -all;quit;"
-    # Added -voptargs=+acc=npr if you want optimization, otherwise remove it
-    # vsim -c -voptargs=+acc=npr -l tb.log work.$(top_module) $(arg) -do "run -all;quit;"
-
-view:
-	vsim -view waveform.wlf
 
 clean:
 	rm -rf transcript *.vcd *.wlf work/ *.log *.ucdb *.vstf covReport covhtmlreport alu_coverage

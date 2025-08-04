@@ -1,6 +1,6 @@
 # vsim -c tb 
-# Start time: 12:51:39 on Aug 01,2025
-# ** Note: (vsim-3812) Design is being optimized...
+# Start time: 12:49:45 on Aug 04,2025
+# ** Note: (vsim-8009) Loading existing optimized design _opt1
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -71,5 +71,5 @@
 # [TEST_DONE]     1
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
 #    Time: 20 ns  Iteration: 53  Instance: /tb
-# End time: 12:51:45 on Aug 01,2025, Elapsed time: 0:00:06
+# End time: 12:49:55 on Aug 04,2025, Elapsed time: 0:00:10
 # Errors: 0, Warnings: 0
