@@ -1,42 +1,15 @@
 QuestaSim vlog 10.6c Compiler 2017.07 Jul 25 2017
-Start time: 12:57:14 on Aug 05,2025
+Start time: 15:46:05 on Aug 05,2025
 vlog -sv "+acc" "+cover" "+fcover" -l compile.log ../src/testbench/ral_top.sv 
 ** Note: (vlog-2286) ../src/testbench/ral_top.sv(1): Using implicit +incdir+/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(6)
-** while parsing file included at ../src/testbench/ral_reg_seq.sv(7)
-** at ../src/testbench/sequences/frontdoor/freg_seq.sv(5): Typedef 'fr1_seq' multiply defined.
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(6)
-** while parsing file included at ../src/testbench/ral_reg_seq.sv(7)
-** at ../src/testbench/sequences/frontdoor/freg_seq.sv(49): Typedef 'fr2_seq' multiply defined.
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(6)
-** while parsing file included at ../src/testbench/ral_reg_seq.sv(7)
-** at ../src/testbench/sequences/frontdoor/freg_seq.sv(93): Typedef 'fr3_seq' multiply defined.
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(6)
-** while parsing file included at ../src/testbench/ral_reg_seq.sv(7)
-** at ../src/testbench/sequences/frontdoor/freg_seq.sv(137): Typedef 'fr4_seq' multiply defined.
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(13)
-** while parsing file included at ../src/testbench/ral_test.sv(11)
-** at ../src/testbench/tests/freg_test.sv(10): Invalid type 'freg_seq'. Please check the type of the variable 'seq'.
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(13)
-** while parsing file included at ../src/testbench/ral_test.sv(11)
-** at ../src/testbench/tests/freg_test.sv(15): (vlog-2730) Undefined variable: 'seq'.
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(13)
-** while parsing file included at ../src/testbench/ral_test.sv(11)
-** at ../src/testbench/tests/freg_test.sv(15): (vlog-2164) Class or package 'freg_seq' not found.
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(13)
-** while parsing file included at ../src/testbench/ral_test.sv(11)
-** at ../src/testbench/tests/freg_test.sv(15): (vlog-2730) Undefined variable: 'freg_seq'.
-** Error: (vlog-13069) ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(13)
-** while parsing file included at ../src/testbench/ral_test.sv(11)
-** at ../src/testbench/tests/freg_test.sv(15): near "::": syntax error, unexpected ::, expecting ';'.
-End time: 12:57:14 on Aug 05,2025, Elapsed time: 0:00:00
-Errors: 9, Warnings: 0
+-- Compiling package ral_top_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Compiling interface ral_interface
+-- Compiling module tb
+-- Compiling module top
+-- Compiling module tb
+
+Top level modules:
+	tb
+End time: 15:46:05 on Aug 05,2025, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
