@@ -8,7 +8,7 @@
 `include "tests/rst2_test.sv"
 `include "tests/rst3_test.sv"
 `include "tests/rst4_test.sv"
-
+//`include "tests/freg_test.sv"
 
 // BACKDOOR
 

@@ -26,7 +26,7 @@ class ral_env extends uvm_env;
     agent.mon.mon2sb_cov.connect(sb.sb2mon);
     regmodel.default_map.set_sequencer( .sequencer(agent.seqr), .adapter(adapter) );
     regmodel.default_map.set_base_addr(0);
-    //regmodel.default_map.set_auto_predict(0);
+    //regmodel.default_map.set_auto_predict(1);
   endfunction
 
 endclass

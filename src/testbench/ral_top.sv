@@ -34,7 +34,7 @@ module tb;
   end
   
   initial begin
-  run_test("fr2_test");  
+  run_test();  
   end
   
 endmodule

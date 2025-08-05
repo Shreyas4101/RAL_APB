@@ -130,9 +130,7 @@ class ctrl extends uvm_reg;
   covergroup ctrl_cov;
     option.per_instance = 1;
     coverpoint ctrl_field.value[3:0] {
-      bins low  = {[0:5]};
-      bins mid  = {[6:10]};
-      bins high = {[11:15]};
+      bins b1  = {[0:15]};
     }
   endgroup
 
@@ -168,9 +166,7 @@ class reg1 extends uvm_reg;
   covergroup reg1_cov;
     option.per_instance = 1;
     coverpoint reg1_field.value {
-      bins low  = {[0:32'h1FFF_FFFF]};
-      bins mid  = {[32'h2000_0000:32'h7FFF_FFFF]};
-      bins high = {[32'h8000_0000:32'hFFFF_FFFF]};
+      bins b2  = {[0:32'hFFFF_FFFF]};
     }
   endgroup
 
@@ -206,9 +202,7 @@ class reg2 extends uvm_reg;
   covergroup reg2_cov;
     option.per_instance = 1;
     coverpoint reg2_field.value {
-      bins low  = {[0:32'h1FFF_FFFF]};
-      bins mid  = {[32'h2000_0000:32'h7FFF_FFFF]};
-      bins high = {[32'h8000_0000:32'hFFFF_FFFF]};
+      bins b3  = {[0:32'hFFFF_FFFF]};
     }
   endgroup
 
@@ -244,9 +238,7 @@ class reg3 extends uvm_reg;
   covergroup reg3_cov;
     option.per_instance = 1;
     coverpoint reg3_field.value {
-      bins low  = {[0:32'h1FFF_FFFF]};
-      bins mid  = {[32'h2000_0000:32'h7FFF_FFFF]};
-      bins high = {[32'h8000_0000:32'hFFFF_FFFF]};
+      bins b4  = {[0:32'hFFFF_FFFF]};
     }
   endgroup
 
@@ -282,9 +274,7 @@ class reg4 extends uvm_reg;
   covergroup reg4_cov;
     option.per_instance = 1;
     coverpoint reg4_field.value {
-      bins low  = {[0:32'h1FFF_FFFF]};
-      bins mid  = {[32'h2000_0000:32'h7FFF_FFFF]};
-      bins high = {[32'h8000_0000:32'hFFFF_FFFF]};
+      bins b5  = {[0:32'hFFFF_FFFF]};
     }
   endgroup
 
@@ -334,31 +324,31 @@ class reg_block extends uvm_reg_block;
     c1 = ctrl::type_id::create("c1");
     c1.build();
     c1.configure(this);
-    c1.set_coverage(UVM_CVR_FIELD_VALS);
+    void'(c1.set_coverage(UVM_CVR_FIELD_VALS));
    // c1.add_hdl_path_slice("cntrl", 0, 4);
 
     r1 = reg1::type_id::create("r1");
     r1.build();
     r1.configure(this);
-    r1.set_coverage(UVM_CVR_FIELD_VALS);
+    void'(r1.set_coverage(UVM_CVR_FIELD_VALS));
    // r1.add_hdl_path_slice("reg1", 0, 32);
 
     r2 = reg2::type_id::create("r2");
     r2.build();
     r2.configure(this);
-    r2.set_coverage(UVM_CVR_FIELD_VALS);
+    void'(r2.set_coverage(UVM_CVR_FIELD_VALS));
   //  r2.add_hdl_path_slice("reg2", 0, 32);
 
     r3 = reg3::type_id::create("r3");
     r3.build();
     r3.configure(this);
-    r3.set_coverage(UVM_CVR_FIELD_VALS);
+    void'(r3.set_coverage(UVM_CVR_FIELD_VALS));
  //   r3.add_hdl_path_slice("reg3", 0, 32);
 
     r4 = reg4::type_id::create("r4");
     r4.build();
     r4.configure(this);
-    r4.set_coverage(UVM_CVR_FIELD_VALS);
+    void'(r4.set_coverage(UVM_CVR_FIELD_VALS));
   //  r4.add_hdl_path_slice("reg4", 0, 32);
 
     default_map = create_map("default_map", 0, 4, UVM_LITTLE_ENDIAN);
@@ -367,7 +357,9 @@ class reg_block extends uvm_reg_block;
     default_map.add_reg(r2, 'h8, "RW");
     default_map.add_reg(r3, 'hc, "RW");
     default_map.add_reg(r4, 'h10, "RW");
-
+    default_map.set_auto_predict(1);
+  //
+  //
   //  add_hdl_path("tb.DUT", "RTL");
     lock_model();
   endfunction
