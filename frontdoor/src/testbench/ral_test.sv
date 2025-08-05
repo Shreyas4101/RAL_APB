@@ -1,5 +1,6 @@
 // FRONTDOOR
 
+`include "tests/fctrl_test.sv"
 `include "tests/fr1_test.sv"
 `include "tests/fr2_test.sv"
 `include "tests/fr3_test.sv"
@@ -9,14 +10,6 @@
 `include "tests/rst3_test.sv"
 `include "tests/rst4_test.sv"
 `include "tests/freg_test.sv"
-
-// BACKDOOR
-
-`include "tests/br1_test.sv"
-`include "tests/br2_test.sv"
-`include "tests/br3_test.sv"
-`include "tests/br4_test.sv"
-
 
 /*  class ral_test extends uvm_test;
 
@@ -70,7 +63,7 @@ class ral_test1 extends uvm_test;
     phase.phase_done.set_drain_time(this, 20);
   endtask
 endclass
-/*
+
 class reg_sequence_ral_test extends ral_test;
   `uvm_component_utils(reg_sequence_ral_test)
   function new(string name = "reg_sequence_ral_test",uvm_component parent = null);

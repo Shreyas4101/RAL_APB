@@ -29,21 +29,17 @@ class freg_test extends uvm_test;
 
   `uvm_component_utils(freg_test)
 
-  rst1_seq seq1;
-  rst2_seq seq2;
-  rst3_seq seq3;
-  rst4_seq seq4;
-  fr1_seq seq5; 
-  fr2_seq seq6;
-  fr3_seq seq7;
-  fr4_seq seq8;
+  fctrl_seq seq1;
+  rst1_seq seq2;
+  rst2_seq seq3;
+  rst3_seq seq4;
+  rst4_seq seq5;
+  fr1_seq seq6; 
+  fr2_seq seq7;
+  fr3_seq seq8;
+  fr4_seq seq9;
 
   ral_env env;
-
-  /*
-  apb_slave_toggle slave_toggle_pkt;
-
-  apb_transfer_invalid transfer_invalid_pkt;*/
 
   function new(string name = "freg_test", uvm_component parent = null);
     super.new(name, parent);
@@ -54,19 +50,16 @@ class freg_test extends uvm_test;
     super.build_phase(phase);
     env = ral_env::type_id::create("env",this);
 
-
-    seq1 = rst1_seq::type_id::create("seq1", this);
-    seq2 = rst2_seq::type_id::create("seq2", this);
-    seq3 = rst3_seq::type_id::create("seq3", this);
-    seq4 = rst4_seq::type_id::create("seq4", this);
-    seq5 = fr1_seq::type_id::create("seq5", this);
-    seq6 = fr2_seq::type_id::create("seq6", this);
-    seq7 = fr3_seq::type_id::create("seq7", this);
-    seq8 = fr4_seq::type_id::create("seq8", this);
+    seq1 = fctrl_seq::type_id::create("seq1", this);
+    seq2 = rst1_seq::type_id::create("seq2", this);
+    seq3 = rst2_seq::type_id::create("seq3", this);
+    seq4 = rst3_seq::type_id::create("seq4", this);
+    seq5 = rst4_seq::type_id::create("seq5", this);
+    seq6 = fr1_seq::type_id::create("seq6", this);
+    seq7 = fr2_seq::type_id::create("seq7", this);
+    seq8 = fr3_seq::type_id::create("seq8", this);
+    seq9 = fr4_seq::type_id::create("seq9", this);
     
-    /*
-    slave_toggle_pkt     = apb_slave_toggle::type_id::create("slave_toggle_pkt", this);
-    transfer_invalid_pkt = apb_transfer_invalid::type_id::create("transfer_invalid_pkt", this);*/
   endfunction
 
   virtual task run_phase(uvm_phase phase);
@@ -117,6 +110,14 @@ class freg_test extends uvm_test;
     seq8.start(env.agent.seqr);
     phase.drop_objection(this);
     phase.phase_done.set_drain_time(this, 20);
+
+    phase.raise_objection(this);
+    seq9.regmodel = env.regmodel;
+    seq9.start(env.agent.seqr);
+    phase.drop_objection(this);
+    phase.phase_done.set_drain_time(this, 20);
+
+  
   endtask
 
 endclass
