@@ -1,0 +1,14 @@
+var g_data = {
+a1327:{
+scopes:[{s:'1223',b:'1',val:'ral_top_sv_unit'},{val:'ral_adapter'},{link:'z.htm?f=0&s=1327',val:'bus2reg'}]
+,assertions:[{dummy:0},{cr:'c',c:'g',z:'immed__19',fc:'Gr',pc:'Gr',h0:'0',h1:'3'}
+],
+},
+a1801:{
+scopes:[{s:'1697',b:'1',val:'work.ral_top_sv_unit'},{val:'ral_adapter'},{link:'z.htm?f=0&s=1801',val:'bus2reg'}]
+,assertions:[{dummy:0},{cr:'c',c:'g',z:'immed__19',fc:'Gr',pc:'Gr',h0:'0',h1:'3'}
+],
+},
+dummyEnd:0
+};
+processAssertionsData(g_data,1);

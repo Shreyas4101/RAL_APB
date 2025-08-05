@@ -10,7 +10,7 @@ view:
 
 compile_with_cov:
 	vlib work;
-	vlog -sv +acc +cover +fcover -l compile.log $(top_file);
+	vlog -sv +acc +cover +fcover -l compile.log ../src/testbench/$(top_file);
 
 run_with_cov:
 	vsim -vopt work.$(top_module) $(arg) -voptargs=+acc=npr -assertdebug -l run.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb; coverage report -detail;run -all; exit"; 
