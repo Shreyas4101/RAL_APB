@@ -1,4 +1,4 @@
-class freg_test extends uvm_test;
+/*class freg_test extends uvm_test;
 
 `uvm_component_utils(freg_test)
 
@@ -22,4 +22,6 @@ class freg_test extends uvm_test;
     phase.drop_objection(this);
     phase.phase_done.set_drain_time(this, 20);
   endtask
-endclass
+endclass*/
+
+
