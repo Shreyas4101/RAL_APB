@@ -1,6 +1,6 @@
-# vsim -vopt work.tb "+UVM_TESTNAME=fr3_test" -voptargs="+acc=npr" -assertdebug -l run.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb; coverage report -detail;run -all; exit" 
-# Start time: 15:47:03 on Aug 05,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# vsim -vopt work.tb "+UVM_TESTNAME=freg_test" -voptargs="+acc=npr" -assertdebug -l run.log -coverage -c -do "coverage save -onexit -assert -directive -cvg -codeAll coverage.ucdb; coverage report -detail;run -all; exit" 
+# Start time: 16:03:18 on Aug 05,2025
+# ** Note: (vsim-3812) Design is being optimized...
 # //  Questa Sim
 # //  Version 10.6c linux Jul 25 2017
 # //
@@ -2346,7 +2346,7 @@
 #     34                                                 end
 #     35                                                 
 #     36                                                 initial begin
-#     37              1                    ***0***       run_test("freg_test");  
+#     37              1                    ***0***       run_test();  
 #     38                                                 end
 #     39                                                 
 #     40                                               endmodule
@@ -5070,6 +5070,179 @@
 # Toggle Coverage      =      100.0% (0 of 0 bins)
 # 
 # =================================================================================
+# === File: ../src/testbench/tests/freg_test.sv
+# =================================================================================
+# Statement Coverage:
+#     Enabled Coverage            Active      Hits    Misses % Covered
+#     ----------------            ------      ----    ------ ---------
+#     Stmts                           54         0        54       0.0
+# 
+# ================================Statement Details================================
+# 
+# Statement Coverage for file ../src/testbench/tests/freg_test.sv --
+# 
+#     1                                                /*class freg_test extends uvm_test;
+#     2                                                
+#     3                                                `uvm_component_utils(freg_test)
+#     4                                                
+#     5                                                  function new(string name = "freg_test", uvm_component parent = null);
+#     6                                                    super.new(name,parent);
+#     7                                                  endfunction
+#     8                                                
+#     9                                                  ral_env env;
+#     10                                                 freg_seq seq;
+#     11                                               
+#     12                                                 virtual function void build_phase(uvm_phase phase);
+#     13                                                   super.build_phase(phase);
+#     14                                                   env = ral_env::type_id::create("env",this);
+#     15                                                   seq = freg_seq::type_id::create("seq",this);
+#     16                                                 endfunction
+#     17                                               
+#     18                                                 virtual task run_phase(uvm_phase phase);
+#     19                                                   phase.raise_objection(this);
+#     20                                                   seq.regmodel = env.regmodel;
+#     21                                                   seq.start(env.agent.seqr);
+#     22                                                   phase.drop_objection(this);
+#     23                                                   phase.phase_done.set_drain_time(this, 20);
+#     24                                                 endtask
+#     25                                               endclass*/
+#     26                                               
+#     27                                               
+#     28                                               class freg_test extends uvm_test;
+#     29                                               
+#     30              1                    ***0***       `uvm_component_utils(freg_test)
+#     30              2                    ***0***     
+#     30              3                    ***0***     
+#     31                                               
+#     32                                                 rst1_seq seq1;
+#     33                                                 rst2_seq seq2;
+#     34                                                 rst3_seq seq3;
+#     35                                                 rst4_seq seq4;
+#     36                                                 fr1_seq seq5; 
+#     37                                                 fr2_seq seq6;
+#     38                                                 fr3_seq seq7;
+#     39                                                 fr4_seq seq8;
+#     40                                               
+#     41                                                 ral_env env;
+#     42                                               
+#     43                                                 /*
+#     44                                                 apb_slave_toggle slave_toggle_pkt;
+#     45                                               
+#     46                                                 apb_transfer_invalid transfer_invalid_pkt;*/
+#     47                                               
+#     48                                                 function new(string name = "freg_test", uvm_component parent = null);
+#     49              1                    ***0***         super.new(name, parent);
+#     50                                                 endfunction	
+#     51                                               
+#     52                                                 //defining build phase
+#     53                                                 virtual function void build_phase(uvm_phase phase);
+#     54              1                    ***0***         super.build_phase(phase);
+#     55              1                    ***0***         env = ral_env::type_id::create("env",this);
+#     56                                               
+#     57                                               
+#     58              1                    ***0***         seq1 = rst1_seq::type_id::create("seq1", this);
+#     59              1                    ***0***         seq2 = rst2_seq::type_id::create("seq2", this);
+#     60              1                    ***0***         seq3 = rst3_seq::type_id::create("seq3", this);
+#     61              1                    ***0***         seq4 = rst4_seq::type_id::create("seq4", this);
+#     62              1                    ***0***         seq5 = fr1_seq::type_id::create("seq5", this);
+#     63              1                    ***0***         seq6 = fr2_seq::type_id::create("seq6", this);
+#     64              1                    ***0***         seq7 = fr3_seq::type_id::create("seq7", this);
+#     65              1                    ***0***         seq8 = fr4_seq::type_id::create("seq8", this);
+#     66                                                   
+#     67                                                   /*
+#     68                                                   slave_toggle_pkt     = apb_slave_toggle::type_id::create("slave_toggle_pkt", this);
+#     69                                                   transfer_invalid_pkt = apb_transfer_invalid::type_id::create("transfer_invalid_pkt", this);*/
+#     70                                                 endfunction
+#     71                                               
+#     72                                                 virtual task run_phase(uvm_phase phase);
+#     73              1                    ***0***         phase.raise_objection(this);
+#     74              1                    ***0***         seq1.regmodel = env.regmodel;
+#     75              1                    ***0***         seq1.start(env.agent.seqr);
+#     76              1                    ***0***         phase.drop_objection(this);
+#     77              1                    ***0***         phase.phase_done.set_drain_time(this, 20);
+#     78                                               
+#     79              1                    ***0***         phase.raise_objection(this);
+#     80              1                    ***0***         seq2.regmodel = env.regmodel;
+#     81              1                    ***0***         seq2.start(env.agent.seqr);
+#     82              1                    ***0***         phase.drop_objection(this);
+#     83              1                    ***0***         phase.phase_done.set_drain_time(this, 20);
+#     84                                               
+#     85              1                    ***0***         phase.raise_objection(this);
+#     86              1                    ***0***         seq3.regmodel = env.regmodel;
+#     87              1                    ***0***         seq3.start(env.agent.seqr);
+#     88              1                    ***0***         phase.drop_objection(this);
+#     89              1                    ***0***         phase.phase_done.set_drain_time(this, 20);
+#     90                                               
+#     91              1                    ***0***         phase.raise_objection(this);
+#     92              1                    ***0***         seq4.regmodel = env.regmodel;
+#     93              1                    ***0***         seq4.start(env.agent.seqr);
+#     94              1                    ***0***         phase.drop_objection(this);
+#     95              1                    ***0***         phase.phase_done.set_drain_time(this, 20);
+#     96                                                 
+#     97              1                    ***0***         phase.raise_objection(this);
+#     98              1                    ***0***         seq5.regmodel = env.regmodel;
+#     99              1                    ***0***         seq5.start(env.agent.seqr);
+#     100             1                    ***0***         phase.drop_objection(this);
+#     101             1                    ***0***         phase.phase_done.set_drain_time(this, 20);
+#     102                                              
+#     103             1                    ***0***         phase.raise_objection(this);
+#     104             1                    ***0***         seq6.regmodel = env.regmodel;
+#     105             1                    ***0***         seq6.start(env.agent.seqr);
+#     106             1                    ***0***         phase.drop_objection(this);
+#     107             1                    ***0***         phase.phase_done.set_drain_time(this, 20);
+#     108                                              
+#     109             1                    ***0***         phase.raise_objection(this);
+#     110             1                    ***0***         seq7.regmodel = env.regmodel;
+#     111             1                    ***0***         seq7.start(env.agent.seqr);
+#     112             1                    ***0***         phase.drop_objection(this);
+#     113             1                    ***0***         phase.phase_done.set_drain_time(this, 20);
+#     114                                                
+#     115             1                    ***0***         phase.raise_objection(this);
+#     116             1                    ***0***         seq8.regmodel = env.regmodel;
+#     117             1                    ***0***         seq8.start(env.agent.seqr);
+#     118             1                    ***0***         phase.drop_objection(this);
+#     119             1                    ***0***         phase.phase_done.set_drain_time(this, 20);
+#     120                                                endtask
+#     121                                              
+#     122                                              endclass
+# 
+# Branch Coverage:
+#     Enabled Coverage            Active      Hits    Misses % Covered
+#     ----------------            ------      ----    ------ ---------
+#     Branches                         0         0         0     100.0
+# Condition Coverage:
+#     Enabled Coverage            Active   Covered    Misses % Covered
+#     ----------------            ------      ----    ------ ---------
+#     FEC Condition Terms              0         0         0     100.0
+# Expression Coverage:
+#     Enabled Coverage            Active   Covered    Misses % Covered
+#     ----------------            ------      ----    ------ ---------
+#     FEC Expression Terms             0         0         0     100.0
+# FSM Coverage:
+#     Enabled Coverage            Active      Hits    Misses % Covered
+#     ----------------            ------      ----    ------ ---------
+#     FSMs                                                       100.0
+#         States                       0         0         0     100.0
+#         Transitions                  0         0         0     100.0
+# Toggle Coverage:
+#     Enabled Coverage            Active      Hits    Misses % Covered
+#     ----------------            ------      ----    ------ ---------
+#     Toggle Bins                      0         0         0     100.0
+# 
+# ================================Toggle Details================================
+# 
+# Toggle Coverage for File ../src/testbench/tests/freg_test.sv --
+# 
+#        Line                                   Node      1H->0L      0L->1H  "Coverage"
+# --------------------------------------------------------------------------------------
+# 
+# Total Node Count     =          0 
+# Toggled Node Count   =          0 
+# Untoggled Node Count =          0 
+# 
+# Toggle Coverage      =      100.0% (0 of 0 bins)
+# 
+# =================================================================================
 # === File: ../src/testbench/tests/rst1_test.sv
 # =================================================================================
 # Statement Coverage:
@@ -5400,22 +5573,34 @@
 # 
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
 # UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
-# UVM_INFO @ 0: reporter [RNTST] Running test fr3_test...
+# UVM_INFO @ 0: reporter [RNTST] Running test freg_test...
 # include_coverage not located
 #   did you mean recording_detail?
-# UVM_INFO ../src/testbench/sequences/frontdoor/fr3_seq.sv(17) @ 0: uvm_test_top.env.agent.seqr@@seq [SEQ] Initial Value -> Desired Value: 0, Mirrored Value: 0
-# UVM_INFO ../src/testbench/sequences/frontdoor/fr3_seq.sv(25) @ 0: uvm_test_top.env.agent.seqr@@seq [SEQ] After Set -> Desired Value: 33, Mirrored Value: 0
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst1_seq.sv(17) @ 0: uvm_test_top.env.agent.seqr@@seq1 [SEQ] Reset Value is present: 1 
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst1_seq.sv(19) @ 0: uvm_test_top.env.agent.seqr@@seq1 [SEQ]  Reset for REG1: a5a50000
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst1_seq.sv(23) @ 0: uvm_test_top.env.agent.seqr@@seq1 [SEQ] Before reset REG1 -> Desired: 0, Mirrored: 0
+# ---------- Applying reset to REG1------------
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst1_seq.sv(29) @ 0: uvm_test_top.env.agent.seqr@@seq1 [SEQ] After reset REG1 -> Desired: a5a50000, Mirrored: a5a50000, Read: 0
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst2_seq.sv(17) @ 0: uvm_test_top.env.agent.seqr@@seq2 [SEQ] Reset Value is present: 1 
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst2_seq.sv(19) @ 0: uvm_test_top.env.agent.seqr@@seq2 [SEQ]  Reset for REG2: 12349876
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst2_seq.sv(23) @ 0: uvm_test_top.env.agent.seqr@@seq2 [SEQ] Before reset REG2 -> Desired: 0, Mirrored: 0
+# ---------- Applying reset to REG2------------
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst2_seq.sv(29) @ 0: uvm_test_top.env.agent.seqr@@seq2 [SEQ] After reset REG2 -> Desired: 12349876, Mirrored: 12349876, Read: 0
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst3_seq.sv(96) @ 0: uvm_test_top.env.agent.seqr@@seq3 [SEQ] Reset value present in RAL model: 1
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst3_seq.sv(100) @ 0: uvm_test_top.env.agent.seqr@@seq3 [SEQ] Configured RAL reset value for reg3: 0x5a5a5555
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst3_seq.sv(105) @ 0: uvm_test_top.env.agent.seqr@@seq3 [SEQ] Before reset -> Desired: 0x00000000, Mirrored: 0x00000000
+# ---------- Applying reset to REG3 (RAL model) ------------
 # -------------monitor begin----------
 # UVM_INFO ../src/testbench/ral_scb.sv(34) @ 10: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 0, Data = 0
 # -------------monitor begin----------
-# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 30: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
-# UVM_INFO ../src/testbench/ral_driver.sv(47) @ 50: uvm_test_top.env.agent.drv [DRV] Wdata : 33, Addr : c
+# UVM_INFO ../src/testbench/ral_scb.sv(34) @ 30: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = c, Data = 0
+# UVM_INFO ../src/testbench/ral_driver.sv(60) @ 50: uvm_test_top.env.agent.drv [DRV] Rdata : 0, Addr : c
 # -------------monitor begin----------
-# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 50: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# UVM_INFO ../src/testbench/ral_scb.sv(34) @ 50: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = c, Data = 0
 # UVM_INFO ../src/testbench/ral_driver.sv(30) @ 70: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
 # Name                           Type          Size  Value                      
 # ------------------------------------------------------------------------------
-# item                           ral_seq_item  -     @709                       
+# item                           ral_seq_item  -     @740                       
 #   begin_time                   time          64    0                          
 #   depth                        int           32    'd2                        
 #   parent sequence (name)       string        18    default_parent_seq         
@@ -5424,19 +5609,29 @@
 # ------------------------------------------------------------------------------
 # 
 # -------------monitor begin----------
-# UVM_INFO ../src/testbench/sequences/frontdoor/fr3_seq.sv(31) @ 70: uvm_test_top.env.agent.seqr@@seq [SEQ] After Update -> Desired Value: 33, Mirrored Value: 33
-# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 70: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# UVM_ERROR verilog_src/uvm-1.1d/src/reg/uvm_reg.svh(2890) @ 70: reporter [RegModel] Register "regmodel.r3" value read from DUT (0x0000000000000000) does not match mirrored value (0x000000005a5a5555)
+# UVM_INFO verilog_src/uvm-1.1d/src/reg/uvm_reg.svh(2909) @ 70: reporter [RegModel] Field reg3_field (regmodel.r3[31:0]) mismatch read=32'h0 mirrored=32'h5a5a5555 
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst3_seq.sv(123) @ 70: uvm_test_top.env.agent.seqr@@seq3 [SEQ] After reset -> Desired: 0x00000000, Mirrored (DUT): 0x00000000
+# UVM_ERROR ../src/testbench/sequences/frontdoor/rst3_seq.sv(127) @ 70: uvm_test_top.env.agent.seqr@@seq3 [SEQ] Reset mismatch: DUT read = 0x00000000, Expected (RAL) = 0x5a5a5555
+# UVM_INFO ../src/testbench/ral_scb.sv(34) @ 70: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = c, Data = 0
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst4_seq.sv(17) @ 70: uvm_test_top.env.agent.seqr@@seq4 [SEQ] Reset Value is present: 1 
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst4_seq.sv(19) @ 70: uvm_test_top.env.agent.seqr@@seq4 [SEQ]  Reset for REG4: ffff
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst4_seq.sv(23) @ 70: uvm_test_top.env.agent.seqr@@seq4 [SEQ] Before reset REG4 -> Desired: 0, Mirrored: 0
+# ---------- Applying reset to REG4------------
+# UVM_INFO ../src/testbench/sequences/frontdoor/rst4_seq.sv(29) @ 70: uvm_test_top.env.agent.seqr@@seq4 [SEQ] After reset REG4 -> Desired: ffff, Mirrored: ffff, Read: 0
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr1_seq.sv(17) @ 70: uvm_test_top.env.agent.seqr@@seq5 [SEQ] Initial Value -> Desired Value: 0, Mirrored Value: 0
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr1_seq.sv(25) @ 70: uvm_test_top.env.agent.seqr@@seq5 [SEQ] After Set -> Desired Value: 11, Mirrored Value: 0
 # -------------monitor begin----------
-# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 90: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# UVM_INFO ../src/testbench/ral_scb.sv(34) @ 90: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = c, Data = 0
 # -------------monitor begin----------
-# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 110: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
-# UVM_INFO ../src/testbench/ral_driver.sv(47) @ 130: uvm_test_top.env.agent.drv [DRV] Wdata : 33, Addr : c
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 110: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 4, Data = 11
+# UVM_INFO ../src/testbench/ral_driver.sv(47) @ 130: uvm_test_top.env.agent.drv [DRV] Wdata : 11, Addr : 4
 # -------------monitor begin----------
-# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 130: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 130: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 4, Data = 11
 # UVM_INFO ../src/testbench/ral_driver.sv(30) @ 150: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
 # Name                           Type          Size  Value                      
 # ------------------------------------------------------------------------------
-# item                           ral_seq_item  -     @746                       
+# item                           ral_seq_item  -     @774                       
 #   begin_time                   time          64    70                         
 #   depth                        int           32    'd2                        
 #   parent sequence (name)       string        18    default_parent_seq         
@@ -5445,19 +5640,19 @@
 # ------------------------------------------------------------------------------
 # 
 # -------------monitor begin----------
-# UVM_INFO ../src/testbench/sequences/frontdoor/fr3_seq.sv(36) @ 150: uvm_test_top.env.agent.seqr@@seq [SEQ] After write to REG3 -> Desired Value: 33, Mirrored Value: 33
-# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 150: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr1_seq.sv(31) @ 150: uvm_test_top.env.agent.seqr@@seq5 [SEQ] After Update -> Desired Value: 11, Mirrored Value: 11
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 150: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 4, Data = 11
 # -------------monitor begin----------
-# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 170: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 170: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 4, Data = 11
 # -------------monitor begin----------
-# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 190: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = c, Expected = 33, Received = 0
-# UVM_INFO ../src/testbench/ral_driver.sv(60) @ 210: uvm_test_top.env.agent.drv [DRV] Rdata : 0, Addr : c
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 190: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 4, Data = 11
+# UVM_INFO ../src/testbench/ral_driver.sv(47) @ 210: uvm_test_top.env.agent.drv [DRV] Wdata : 11, Addr : 4
 # -------------monitor begin----------
-# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 210: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = c, Expected = 33, Received = 0
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 210: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 4, Data = 11
 # UVM_INFO ../src/testbench/ral_driver.sv(30) @ 230: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
 # Name                           Type          Size  Value                      
 # ------------------------------------------------------------------------------
-# item                           ral_seq_item  -     @758                       
+# item                           ral_seq_item  -     @786                       
 #   begin_time                   time          64    150                        
 #   depth                        int           32    'd2                        
 #   parent sequence (name)       string        18    default_parent_seq         
@@ -5466,26 +5661,243 @@
 # ------------------------------------------------------------------------------
 # 
 # -------------monitor begin----------
-# UVM_INFO ../src/testbench/sequences/frontdoor/fr3_seq.sv(41) @ 230: uvm_test_top.env.agent.seqr@@seq [SEQ] Initial Value -> Desired Value: 33, Mirrored Value: 33
-# UVM_INFO ../src/testbench/ral_scb.sv(34) @ 230: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = c, Data = 33
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 250: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr1_seq.sv(36) @ 230: uvm_test_top.env.agent.seqr@@seq5 [SEQ] After write to REG1 -> Desired Value: 11, Mirrored Value: 11
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 230: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 4, Data = 11
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 250: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 4, Data = 11
+# -------------monitor begin----------
+# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 270: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 4, Expected = 11, Received = 0
+# UVM_INFO ../src/testbench/ral_driver.sv(60) @ 290: uvm_test_top.env.agent.drv [DRV] Rdata : 0, Addr : 4
+# -------------monitor begin----------
+# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 290: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 4, Expected = 11, Received = 0
+# UVM_INFO ../src/testbench/ral_driver.sv(30) @ 310: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @798                       
+#   begin_time                   time          64    230                        
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr1_seq.sv(41) @ 310: uvm_test_top.env.agent.seqr@@seq5 [SEQ] Initial Value -> Desired Value: 55, Mirrored Value: 55
+# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 310: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 4, Expected = 11, Received = 5a5a5555
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr2_seq.sv(17) @ 310: uvm_test_top.env.agent.seqr@@seq6 [SEQ] Initial Value -> Desired Value: 76, Mirrored Value: 76
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr2_seq.sv(25) @ 310: uvm_test_top.env.agent.seqr@@seq6 [SEQ] After Set -> Desired Value: 22, Mirrored Value: 76
+# -------------monitor begin----------
+# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 330: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 4, Expected = 11, Received = 5a5a5555
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 350: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 22
+# UVM_INFO ../src/testbench/ral_driver.sv(47) @ 370: uvm_test_top.env.agent.drv [DRV] Wdata : 22, Addr : 8
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 370: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 22
+# UVM_INFO ../src/testbench/ral_driver.sv(30) @ 390: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @810                       
+#   begin_time                   time          64    310                        
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr2_seq.sv(31) @ 390: uvm_test_top.env.agent.seqr@@seq6 [SEQ] After Update -> Desired Value: 22, Mirrored Value: 22
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 390: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 22
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 410: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 22
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 430: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 22
+# UVM_INFO ../src/testbench/ral_driver.sv(47) @ 450: uvm_test_top.env.agent.drv [DRV] Wdata : 22, Addr : 8
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 450: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 22
+# UVM_INFO ../src/testbench/ral_driver.sv(30) @ 470: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @822                       
+#   begin_time                   time          64    390                        
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr2_seq.sv(36) @ 470: uvm_test_top.env.agent.seqr@@seq6 [SEQ] After Write to REG2 -> Desired Value: 22, Mirrored Value: 22
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 470: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 22
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 490: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 8, Data = 22
+# -------------monitor begin----------
+# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 510: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 8, Expected = 22, Received = 5a5a5555
+# UVM_INFO ../src/testbench/ral_driver.sv(60) @ 530: uvm_test_top.env.agent.drv [DRV] Rdata : 5a5a5555, Addr : 8
+# -------------monitor begin----------
+# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 530: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 8, Expected = 22, Received = 5a5a5555
+# UVM_INFO ../src/testbench/ral_driver.sv(30) @ 550: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @834                       
+#   begin_time                   time          64    470                        
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr2_seq.sv(41) @ 550: uvm_test_top.env.agent.seqr@@seq6 [SEQ] After Read -> Desired Value: 22, Mirrored Value: 22
+# UVM_INFO ../src/testbench/ral_scb.sv(34) @ 550: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 8, Data = 22
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr3_seq.sv(17) @ 550: uvm_test_top.env.agent.seqr@@seq7 [SEQ] Initial Value -> Desired Value: 0, Mirrored Value: 0
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr3_seq.sv(25) @ 550: uvm_test_top.env.agent.seqr@@seq7 [SEQ] After Set -> Desired Value: 33, Mirrored Value: 0
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(34) @ 570: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 8, Data = 22
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 590: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# UVM_INFO ../src/testbench/ral_driver.sv(47) @ 610: uvm_test_top.env.agent.drv [DRV] Wdata : 33, Addr : c
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 610: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# UVM_INFO ../src/testbench/ral_driver.sv(30) @ 630: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @846                       
+#   begin_time                   time          64    550                        
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr3_seq.sv(31) @ 630: uvm_test_top.env.agent.seqr@@seq7 [SEQ] After Update -> Desired Value: 33, Mirrored Value: 33
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 630: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 650: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 670: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# UVM_INFO ../src/testbench/ral_driver.sv(47) @ 690: uvm_test_top.env.agent.drv [DRV] Wdata : 33, Addr : c
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 690: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# UVM_INFO ../src/testbench/ral_driver.sv(30) @ 710: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @858                       
+#   begin_time                   time          64    630                        
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr3_seq.sv(36) @ 710: uvm_test_top.env.agent.seqr@@seq7 [SEQ] After write to REG3 -> Desired Value: 33, Mirrored Value: 33
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 710: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 730: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = c, Data = 33
+# -------------monitor begin----------
+# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 750: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = c, Expected = 33, Received = 22
+# UVM_INFO ../src/testbench/ral_driver.sv(60) @ 770: uvm_test_top.env.agent.drv [DRV] Rdata : 22, Addr : c
+# -------------monitor begin----------
+# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 770: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = c, Expected = 33, Received = 22
+# UVM_INFO ../src/testbench/ral_driver.sv(30) @ 790: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @870                       
+#   begin_time                   time          64    710                        
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr3_seq.sv(41) @ 790: uvm_test_top.env.agent.seqr@@seq7 [SEQ] Initial Value -> Desired Value: 33, Mirrored Value: 33
+# UVM_INFO ../src/testbench/ral_scb.sv(34) @ 790: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = c, Data = 33
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr4_seq.sv(17) @ 790: uvm_test_top.env.agent.seqr@@seq8 [SEQ] Initial Value -> Desired Value: ff, Mirrored Value: ff
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr4_seq.sv(25) @ 790: uvm_test_top.env.agent.seqr@@seq8 [SEQ] After Set -> Desired Value: 44, Mirrored Value: ff
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(34) @ 810: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = c, Data = 33
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 830: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 10, Data = 44
+# UVM_INFO ../src/testbench/ral_driver.sv(47) @ 850: uvm_test_top.env.agent.drv [DRV] Wdata : 44, Addr : 10
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 850: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 10, Data = 44
+# UVM_INFO ../src/testbench/ral_driver.sv(30) @ 870: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @882                       
+#   begin_time                   time          64    790                        
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr4_seq.sv(31) @ 870: uvm_test_top.env.agent.seqr@@seq8 [SEQ] After Update -> Desired Value: 44, Mirrored Value: 44
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 870: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 10, Data = 44
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 890: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 10, Data = 44
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 910: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 10, Data = 44
+# UVM_INFO ../src/testbench/ral_driver.sv(47) @ 930: uvm_test_top.env.agent.drv [DRV] Wdata : 44, Addr : 10
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 930: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 10, Data = 44
+# UVM_INFO ../src/testbench/ral_driver.sv(30) @ 950: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @894                       
+#   begin_time                   time          64    870                        
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr4_seq.sv(36) @ 950: uvm_test_top.env.agent.seqr@@seq8 [SEQ] After write to REG4 -> Desired Value: 44, Mirrored Value: 44
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 950: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 10, Data = 44
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(29) @ 970: uvm_test_top.env.sb [SCOREBOARD] WRITE: Addr = 10, Data = 44
+# -------------monitor begin----------
+# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 990: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 10, Expected = 0, Received = 33
+# UVM_INFO ../src/testbench/ral_driver.sv(60) @ 1010: uvm_test_top.env.agent.drv [DRV] Rdata : 33, Addr : 10
+# -------------monitor begin----------
+# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 1010: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 10, Expected = 0, Received = 33
+# UVM_INFO ../src/testbench/ral_driver.sv(30) @ 1030: uvm_test_top.env.agent.drv [DRV] Transaction completed: ------------------------------------------------------------------------------
+# Name                           Type          Size  Value                      
+# ------------------------------------------------------------------------------
+# item                           ral_seq_item  -     @906                       
+#   begin_time                   time          64    950                        
+#   depth                        int           32    'd2                        
+#   parent sequence (name)       string        18    default_parent_seq         
+#   parent sequence (full name)  string        18    default_parent_seq         
+#   sequencer                    string        27    uvm_test_top.env.agent.seqr
+# ------------------------------------------------------------------------------
+# 
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/sequences/frontdoor/fr4_seq.sv(41) @ 1030: uvm_test_top.env.agent.seqr@@seq8 [SEQ] Initial Value -> Desired Value: 44, Mirrored Value: 44
+# UVM_ERROR ../src/testbench/ral_scb.sv(32) @ 1030: uvm_test_top.env.sb [SCOREBOARD] Mismatch at Addr = 10, Expected = 0, Received = 44
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 1050: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
 # 
 # --- UVM Report Summary ---
 # 
 # ** Report counts by severity
-# UVM_INFO :   25
+# UVM_INFO :  108
 # UVM_WARNING :    0
-# UVM_ERROR :    2
+# UVM_ERROR :   13
 # UVM_FATAL :    0
 # ** Report counts by id
-# [DRV]     6
+# [DRV]    26
 # [Questa UVM]     2
 # [RNTST]     1
-# [SCOREBOARD]    12
-# [SEQ]     5
+# [RegModel]     2
+# [SCOREBOARD]    52
+# [SEQ]    37
 # [TEST_DONE]     1
 # ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 250 ns  Iteration: 53  Instance: /tb
+#    Time: 1050 ns  Iteration: 53  Instance: /tb
 # Saving coverage database on exit...
-# End time: 15:47:05 on Aug 05,2025, Elapsed time: 0:00:02
+# End time: 16:03:22 on Aug 05,2025, Elapsed time: 0:00:04
 # Errors: 0, Warnings: 0

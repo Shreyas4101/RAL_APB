@@ -70,7 +70,7 @@ class freg_test extends uvm_test;
   endfunction
 
   virtual task run_phase(uvm_phase phase);
-/*    phase.raise_objection(this);
+    phase.raise_objection(this);
     seq1.regmodel = env.regmodel;
     seq1.start(env.agent.seqr);
     phase.drop_objection(this);
@@ -93,7 +93,7 @@ class freg_test extends uvm_test;
     seq4.start(env.agent.seqr);
     phase.drop_objection(this);
     phase.phase_done.set_drain_time(this, 20);
-  */
+  
     phase.raise_objection(this);
     seq5.regmodel = env.regmodel;
     seq5.start(env.agent.seqr);

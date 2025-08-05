@@ -30,6 +30,7 @@
 ../src/testbench/tests/fr2_test.sv
 ../src/testbench/tests/fr3_test.sv
 ../src/testbench/tests/fr4_test.sv
+../src/testbench/tests/freg_test.sv
 ../src/testbench/tests/rst1_test.sv
 ../src/testbench/tests/rst2_test.sv
 ../src/testbench/tests/rst3_test.sv
