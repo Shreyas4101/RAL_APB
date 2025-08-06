@@ -2,6 +2,7 @@
 `include "tests/br2_test.sv"
 `include "tests/br3_test.sv"
 `include "tests/br4_test.sv"
+`include "tests/breg_test.sv"
 
 
 /*  class ral_test extends uvm_test;
