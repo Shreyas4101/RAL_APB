@@ -21,10 +21,10 @@ module tb;
   always #10 pclk = ~pclk;
   
   initial begin
-  // presetn=0;
-  // #10 presetn=1;
-//    presetn=0;
-//   #10 presetn = 1;
+   presetn=0;
+   #10 presetn=1;
+    presetn=0;
+   #10 presetn = 1;
   end
   initial begin
   uvm_config_db#(virtual ral_interface.mp_drv)::set(null, "*", "vif", vif.mp_drv);
