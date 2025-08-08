@@ -19,8 +19,8 @@ class ral_mon extends uvm_monitor;
   virtual task run_phase(uvm_phase phase);
     pkt = ral_seq_item::type_id::create("pkt");
     forever begin
-      //  repeat(3) @(vif.cb_mon);
-      @(vif.cb_mon);
+        repeat(7) @(vif.cb_mon);
+      //@(vif.cb_mon);
       $display("-------------monitor begin----------");
       pkt.paddr    =   vif.cb_mon.paddr;
       pkt.pwrite   =   vif.cb_mon.pwrite;

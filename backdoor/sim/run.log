@@ -1,0 +1,94 @@
+# vsim -c -novopt -suppress 12110 work.tb "+UVM_TESTNAME=breg_test" -l run.log -do "/*; add wave -r /*; run -all; exit;" -wlf waveform.wlf 
+# Start time: 15:27:56 on Aug 08,2025
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# //  Questa Sim
+# //  Version 10.6c linux Jul 25 2017
+# //
+# //  Copyright 1991-2017 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  QuestaSim and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# Refreshing /fetools/work_area/frontend/shreyasacharya/repo/RAL/RAL_APB/backdoor/sim/work.tb
+# Refreshing /fetools/work_area/frontend/shreyasacharya/repo/RAL/RAL_APB/backdoor/sim/work.ral_top_sv_unit
+# Loading sv_std.std
+# Loading mtiUvm.uvm_pkg
+# Loading work.ral_top_sv_unit
+# Loading work.tb
+# Refreshing /fetools/work_area/frontend/shreyasacharya/repo/RAL/RAL_APB/backdoor/sim/work.top
+# Loading work.top
+# Refreshing /fetools/work_area/frontend/shreyasacharya/repo/RAL/RAL_APB/backdoor/sim/work.ral_interface
+# Loading work.ral_interface
+# Loading mtiUvm.questa_uvm_pkg
+# Loading /tools/mentor/questasim_10.6c/questasim/uvm-1.1d/linux/uvm_dpi.so
+# /*
+# invalid command name "/*"
+#  add wave -r /*
+#  run -all
+# ----------------------------------------------------------------
+# UVM-1.1d
+# (C) 2007-2013 Mentor Graphics Corporation
+# (C) 2007-2013 Cadence Design Systems, Inc.
+# (C) 2006-2013 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(215) @ 0: reporter [Questa UVM] QUESTA_UVM-1.2.3
+# UVM_INFO verilog_src/questa_uvm_pkg-1.2/src/questa_uvm_pkg.sv(217) @ 0: reporter [Questa UVM]  questa_uvm::init(+struct)
+# UVM_INFO @ 0: reporter [RNTST] Running test breg_test...
+# include_coverage not located
+#   did you mean recording_detail?
+# UVM_INFO ../src/testbench/sequences/bctrl_seq.sv(15) @ 0: uvm_test_top.env.agent.seqr@@seq1 [SEQ] Initial Value -> Desired Value: 0, Mirrored Value: 0
+# UVM_INFO ../src/testbench/sequences/bctrl_seq.sv(21) @ 0: uvm_test_top.env.agent.seqr@@seq1 [SEQ] After poke to CTRL -> Desired Value: 5, Mirrored Value: 5
+# UVM_INFO ../src/testbench/sequences/bctrl_seq.sv(26) @ 0: uvm_test_top.env.agent.seqr@@seq1 [SEQ] After peek from CTRL -> Desired: 5, Mirrored Value: 5, peek: 5
+# UVM_INFO ../src/testbench/sequences/br1_seq.sv(20) @ 0: uvm_test_top.env.agent.seqr@@seq2 [SEQ] Initial Value -> Desired Value: 0, Mirrored Value: 0
+# UVM_INFO ../src/testbench/sequences/br1_seq.sv(26) @ 0: uvm_test_top.env.agent.seqr@@seq2 [SEQ] After poke to REG1 -> Desired Value: 11, Mirrored Value: 11
+# UVM_INFO ../src/testbench/sequences/br1_seq.sv(31) @ 0: uvm_test_top.env.agent.seqr@@seq2 [SEQ] After peek from REG1 -> Desired: 11, Mirrored Value: 11, peek: 11
+# UVM_INFO ../src/testbench/sequences/br2_seq.sv(17) @ 0: uvm_test_top.env.agent.seqr@@seq3 [SEQ] Initial Value -> Desired Value: 0, Mirrored Value: 0
+# UVM_INFO ../src/testbench/sequences/br2_seq.sv(23) @ 0: uvm_test_top.env.agent.seqr@@seq3 [SEQ] After poke to REG2 -> Desired Value: 22, Mirrored Value: 22
+# UVM_INFO ../src/testbench/sequences/br2_seq.sv(28) @ 0: uvm_test_top.env.agent.seqr@@seq3 [SEQ] After peek from REG2 -> Desired: 22, Mirrored Value: 22, peek: 22
+# UVM_INFO ../src/testbench/sequences/br3_seq.sv(17) @ 0: uvm_test_top.env.agent.seqr@@seq4 [SEQ] Initial Value -> Desired Value: 0, Mirrored Value: 0
+# UVM_INFO ../src/testbench/sequences/br3_seq.sv(23) @ 0: uvm_test_top.env.agent.seqr@@seq4 [SEQ] After poke to REG3 -> Desired Value: 33, Mirrored Value: 33
+# UVM_INFO ../src/testbench/sequences/br3_seq.sv(28) @ 0: uvm_test_top.env.agent.seqr@@seq4 [SEQ] After peek from REG3 -> Desired: 33, Mirrored Value: 33, peek: 33
+# UVM_INFO ../src/testbench/sequences/br4_seq.sv(17) @ 0: uvm_test_top.env.agent.seqr@@seq5 [SEQ] Initial Value -> Desired Value: 0, Mirrored Value: 0
+# UVM_INFO ../src/testbench/sequences/br4_seq.sv(23) @ 0: uvm_test_top.env.agent.seqr@@seq5 [SEQ] After poke to REG4 -> Desired Value: 44, Mirrored Value: 44
+# UVM_INFO ../src/testbench/sequences/br4_seq.sv(28) @ 0: uvm_test_top.env.agent.seqr@@seq5 [SEQ] After peek from REG4 -> Desired: 44, Mirrored Value: 44, peek: 44
+# -------------monitor begin----------
+# UVM_INFO ../src/testbench/ral_scb.sv(34) @ 10: uvm_test_top.env.sb [SCOREBOARD] READ MATCH: Addr = 0, Data = 0
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1268) @ 20: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# 
+# --- UVM Report Summary ---
+# 
+# ** Report counts by severity
+# UVM_INFO :   20
+# UVM_WARNING :    0
+# UVM_ERROR :    0
+# UVM_FATAL :    0
+# ** Report counts by id
+# [Questa UVM]     2
+# [RNTST]     1
+# [SCOREBOARD]     1
+# [SEQ]    15
+# [TEST_DONE]     1
+# ** Note: $finish    : /tools/mentor/questasim_10.6c/questasim/linux/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
+#    Time: 20 ns  Iteration: 53  Instance: /tb
+# End time: 15:28:00 on Aug 08,2025, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 1

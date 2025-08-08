@@ -1,0 +1,96 @@
+class frst_test extends uvm_test;
+
+  `uvm_component_utils(frst_test)
+
+  //fctrl_seq seq1;
+  rst1_seq seq2;
+  rst2_seq seq3;
+  rst3_seq seq4;
+  rst4_seq seq5;
+ // fr1_seq seq6; 
+ // fr2_seq seq7;
+ // fr3_seq seq8;
+ // fr4_seq seq9;
+
+  ral_env env;
+
+  function new(string name = "frst_test", uvm_component parent = null);
+    super.new(name, parent);
+  endfunction	
+
+  //defining build phase
+  virtual function void build_phase(uvm_phase phase);
+    super.build_phase(phase);
+    env = ral_env::type_id::create("env",this);
+
+   // seq1 = fctrl_seq::type_id::create("seq1", this);
+    seq2 = rst1_seq::type_id::create("seq2", this);
+    seq3 = rst2_seq::type_id::create("seq3", this);
+    seq4 = rst3_seq::type_id::create("seq4", this);
+    seq5 = rst4_seq::type_id::create("seq5", this);
+   // seq6 = fr1_seq::type_id::create("seq6", this);
+   // seq7 = fr2_seq::type_id::create("seq7", this);
+   // seq8 = fr3_seq::type_id::create("seq8", this);
+   // seq9 = fr4_seq::type_id::create("seq9", this);
+    
+  endfunction
+
+  virtual task run_phase(uvm_phase phase);
+   /* phase.raise_objection(this);
+    seq1.regmodel = env.regmodel;
+    seq1.start(env.agent.seqr);
+    phase.drop_objection(this);
+    phase.phase_done.set_drain_time(this, 20);
+*/
+    phase.raise_objection(this);
+    seq2.regmodel = env.regmodel;
+    seq2.start(env.agent.seqr);
+    phase.drop_objection(this);
+    phase.phase_done.set_drain_time(this, 20);
+
+    phase.raise_objection(this);
+    seq3.regmodel = env.regmodel;
+    seq3.start(env.agent.seqr);
+    phase.drop_objection(this);
+    phase.phase_done.set_drain_time(this, 20);
+
+    phase.raise_objection(this);
+    seq4.regmodel = env.regmodel;
+    seq4.start(env.agent.seqr);
+    phase.drop_objection(this);
+    phase.phase_done.set_drain_time(this, 20);
+  
+    phase.raise_objection(this);
+    seq5.regmodel = env.regmodel;
+    seq5.start(env.agent.seqr);
+    phase.drop_objection(this);
+    phase.phase_done.set_drain_time(this, 20);
+
+/*    phase.raise_objection(this);
+    seq6.regmodel = env.regmodel;
+    seq6.start(env.agent.seqr);
+    phase.drop_objection(this);
+    phase.phase_done.set_drain_time(this, 20);
+
+    phase.raise_objection(this);
+    seq7.regmodel = env.regmodel;
+    seq7.start(env.agent.seqr);
+    phase.drop_objection(this);
+    phase.phase_done.set_drain_time(this, 20);
+  
+    phase.raise_objection(this);
+    seq8.regmodel = env.regmodel;
+    seq8.start(env.agent.seqr);
+    phase.drop_objection(this);
+    phase.phase_done.set_drain_time(this, 20);
+
+    phase.raise_objection(this);
+    seq9.regmodel = env.regmodel;
+    seq9.start(env.agent.seqr);
+    phase.drop_objection(this);
+    phase.phase_done.set_drain_time(this, 20);
+
+  */
+  endtask
+
+endclass

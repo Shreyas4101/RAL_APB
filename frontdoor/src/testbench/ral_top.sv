@@ -23,7 +23,7 @@ module tb;
   initial begin
    presetn=0;
    #10 presetn=1;
-    presetn=0;
+   #10 presetn=0;
    #10 presetn = 1;
   end
   initial begin

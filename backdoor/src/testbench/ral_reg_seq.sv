@@ -2,4 +2,4 @@
 `include "sequences/br2_seq.sv"
 `include "sequences/br3_seq.sv"
 `include "sequences/br4_seq.sv"
-//`include "sequences/breg_seq.sv"
+`include "sequences/bctrl_seq.sv"

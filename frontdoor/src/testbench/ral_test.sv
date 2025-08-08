@@ -10,6 +10,7 @@
 `include "tests/rst3_test.sv"
 `include "tests/rst4_test.sv"
 `include "tests/freg_test.sv"
+`include "tests/frst_test.sv"
 
 /*  class ral_test extends uvm_test;
 

@@ -1,26 +1,15 @@
 QuestaSim vlog 10.6c Compiler 2017.07 Jul 25 2017
-Start time: 10:23:09 on Aug 06,2025
+Start time: 15:27:43 on Aug 08,2025
 vlog -l compile.log ../src/testbench/ral_top.sv 
 ** Note: (vlog-2286) ../src/testbench/ral_top.sv(1): Using implicit +incdir+/tools/mentor/questasim_10.6c/questasim/uvm-1.1d/../verilog_src/uvm-1.1d/src from import uvm_pkg
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(13)
-** while parsing file included at ../src/testbench/ral_test.sv(5)
-** at ../src/testbench/tests/breg_test.sv(5): Invalid type 'bctrl_seq'. Please check the type of the variable 'seq1'.
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(13)
-** while parsing file included at ../src/testbench/ral_test.sv(5)
-** at ../src/testbench/tests/breg_test.sv(22): (vlog-2730) Undefined variable: 'seq1'.
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(13)
-** while parsing file included at ../src/testbench/ral_test.sv(5)
-** at ../src/testbench/tests/breg_test.sv(22): (vlog-2164) Class or package 'bctrl_seq' not found.
-** Error: ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(13)
-** while parsing file included at ../src/testbench/ral_test.sv(5)
-** at ../src/testbench/tests/breg_test.sv(22): (vlog-2730) Undefined variable: 'bctrl_seq'.
-** Error: (vlog-13069) ** while parsing file included at ../src/testbench/ral_top.sv(3)
-** while parsing file included at ../src/testbench/ral_pkg.sv(13)
-** while parsing file included at ../src/testbench/ral_test.sv(5)
-** at ../src/testbench/tests/breg_test.sv(22): near "::": syntax error, unexpected ::, expecting ';'.
-End time: 10:23:10 on Aug 06,2025, Elapsed time: 0:00:01
-Errors: 5, Warnings: 0
+-- Compiling package ral_top_sv_unit
+-- Importing package mtiUvm.uvm_pkg (uvm-1.1d Built-in)
+-- Compiling interface ral_interface
+-- Compiling module tb
+-- Compiling module top
+-- Compiling module tb
+
+Top level modules:
+	tb
+End time: 15:27:44 on Aug 08,2025, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0

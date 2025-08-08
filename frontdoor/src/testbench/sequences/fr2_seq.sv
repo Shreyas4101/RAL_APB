@@ -10,14 +10,14 @@ class fr2_seq extends uvm_sequence;
 
   virtual task body; 
     uvm_status_e status;
-    bit [7:0] dv,mv,dout;
+    bit [31:0] dv,mv,dout;
     ////////////////////////initial value
     dv = regmodel.r2.get();
     mv = regmodel.r2.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("Initial Value -> Desired Value: %0h, Mirrored Value: %0h", dv, mv),UVM_NONE);
 
     ////////////////// update desire value
-    regmodel.r2.set(8'h22);
+    regmodel.r2.set(32'h1A1C1A1C);
 
     ///////////////// get desired and mirrored value
     dv = regmodel.r2.get();
@@ -30,7 +30,7 @@ class fr2_seq extends uvm_sequence;
     mv = regmodel.r2.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("After Update -> Desired Value: %0h, Mirrored Value: %0h", dv, mv),UVM_NONE);
 
-    regmodel.r2.write(status,8'h22);
+    regmodel.r2.write(status,32'h1A1C1A1C);
     dv   = regmodel.r2.get();
     mv = regmodel.r2.get_mirrored_value();
     `uvm_info("SEQ", $sformatf("After Write to REG2 -> Desired Value: %0h, Mirrored Value: %0h", dv, mv), UVM_NONE);
@@ -38,7 +38,7 @@ class fr2_seq extends uvm_sequence;
     regmodel.r2.read(status,dout);
     dv = regmodel.r2.get();
     mv = regmodel.r2.get_mirrored_value();
-    `uvm_info("SEQ", $sformatf("After Read -> Desired Value: %0h, Mirrored Value: %0h", dv, mv),UVM_NONE);
+    `uvm_info("SEQ", $sformatf("After Read from REG2 -> Desired Value: %0h, Mirrored Value: %0h", dv, mv),UVM_NONE);
   endtask
 endclass
 
